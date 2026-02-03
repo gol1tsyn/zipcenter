@@ -12,16 +12,19 @@ const Hero = () => {
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/90" />
       
+      {/* Frosted bottom edge for refraction effect */}
+      <div className="hero-frost-edge" />
+      
       {/* Content */}
       <div className="relative z-10 container-custom text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-tight mb-8 animate-slide-up">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter leading-tight mb-8 animate-slide-up text-white">
             Прецизионные технологии
             <br />
-            <span className="text-white/80">заточки и шлифования</span>
+            <span className="text-secondary">заточки и шлифования</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0 text-secondary">
             ЗИП-Центр — технологический партнер ведущих немецких машиностроителей: 
             Vollmer, Göckel и Loroch. Мы внедряем экосистему для обслуживания инструмента, 
             которая работает десятилетиями: от поставок станков с ЧПУ до прямого снабжения 
@@ -29,10 +32,10 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:400ms] opacity-0">
-            <a href="#catalog" className="btn-outline-hero">
+            <a href="#catalog" className="btn-ghost">
               Каталог
             </a>
-            <a href="#contact" className="btn-outline-hero">
+            <a href="#contact" className="btn-ghost">
               Консультация
             </a>
           </div>

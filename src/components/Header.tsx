@@ -23,14 +23,14 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
+        isScrolled ? 'glass-header' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <span className="text-xl font-semibold tracking-tight">ЗИП-Центр</span>
+            <span className="text-xl font-semibold tracking-tighter text-white">ЗИП-Центр</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -44,12 +44,12 @@ const Header = () => {
 
           {/* Badge */}
           <div className="hidden lg:block">
-            <span className="badge-pill">VOLLMER · GÖCKEL · LOROCH</span>
+            <span className="badge-pill font-mono text-xs tracking-widest">VOLLMER · GÖCKEL · LOROCH</span>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -70,7 +70,7 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <span className="badge-pill w-fit mt-4">VOLLMER · GÖCKEL · LOROCH</span>
+              <span className="badge-pill w-fit mt-4 font-mono text-xs tracking-widest">VOLLMER · GÖCKEL · LOROCH</span>
             </nav>
           </div>
         )}
