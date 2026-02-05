@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="py-8 border-t border-white/5">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-secondary">
+          <p className="text-sm text-white/40">
             © {new Date().getFullYear()} ЗИП-Центр. Все права защищены.
           </p>
           

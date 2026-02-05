@@ -20,31 +20,27 @@ const Services = () => {
   return (
     <section id="services" className="section-padding border-y border-white/5">
       <div className="container-custom">
-        <div className="text-center mb-16 reveal-on-scroll">
-          <span className="font-mono text-sm tracking-widest uppercase mb-4 block text-white/40">
+        <div className="text-center mb-16">
+          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Сервис
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tighter text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
             Сервисное обслуживание
           </h2>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {services.map((service, index) => (
-            <div 
-              key={service.index} 
-              className="relative group reveal-on-scroll"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <span className="tech-index block mb-6 group-hover:text-white/50 transition-all duration-500">
+          {services.map((service) => (
+            <div key={service.index} className="relative group">
+              <span className="tech-index block mb-6 group-hover:opacity-40 transition-opacity duration-500">
                 {service.index}
               </span>
               
-              <h3 className="text-2xl font-medium mb-4 tracking-tighter text-white">
+              <h3 className="text-2xl font-medium mb-4 tracking-tight">
                 {service.title}
               </h3>
               
-              <p className="leading-relaxed text-secondary">
+              <p className="text-white/50 leading-relaxed">
                 {service.description}
               </p>
               

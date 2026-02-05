@@ -1,5 +1,3 @@
-import { useRef, MouseEvent } from 'react';
-
 const products = [
   {
     title: 'VOLLMER CHD 270',
@@ -34,28 +32,14 @@ const products = [
 ];
 
 const Catalog = () => {
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>, index: number) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-    
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    card.style.setProperty('--mouse-x', `${x}%`);
-    card.style.setProperty('--mouse-y', `${y}%`);
-  };
-
   return (
     <section id="catalog" className="section-padding">
       <div className="container-custom">
-        <div className="text-center mb-16 reveal-on-scroll">
-          <span className="font-mono text-sm tracking-widest uppercase mb-4 block text-white/40">
+        <div className="text-center mb-16">
+          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Каталог
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tighter text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
             Оборудование
           </h2>
         </div>
@@ -64,26 +48,23 @@ const Catalog = () => {
           {products.map((product, index) => (
             <div
               key={product.title}
-              ref={(el) => (cardsRef.current[index] = el)}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              className="card-glow group cursor-pointer overflow-hidden reveal-on-scroll"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="card-glow group cursor-pointer overflow-hidden"
             >
               {/* Placeholder Image Area */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-white/[0.03] to-transparent flex items-center justify-center border-b border-white/5">
-                <span className="font-mono text-7xl font-medium tracking-tighter text-white/40 group-hover:text-white/50 transition-colors duration-500">
+              <div className="aspect-[4/3] bg-gradient-to-br from-white/5 to-white/0 flex items-center justify-center border-b border-white/5">
+                <span className="font-mono text-6xl text-white/10 group-hover:text-white/20 transition-colors duration-500">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
               
               <div className="p-6">
-                <span className="font-mono text-xs tracking-wider uppercase text-white/40">
+                <span className="font-mono text-xs text-white/40 tracking-wider uppercase">
                   {product.category}
                 </span>
-                <h3 className="text-xl font-medium mt-2 mb-3 tracking-tighter text-white group-hover:text-white/90 transition-colors duration-300">
+                <h3 className="text-xl font-medium mt-2 mb-3 tracking-tight group-hover:text-white/80 transition-colors duration-300">
                   {product.title}
                 </h3>
-                <p className="text-sm text-secondary">
+                <p className="text-sm text-white/50">
                   {product.specs}
                 </p>
               </div>
@@ -91,8 +72,8 @@ const Catalog = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12 reveal-on-scroll">
-          <a href="#contact" className="btn-ghost inline-block">
+        <div className="text-center mt-12">
+          <a href="#contact" className="btn-outline-hero inline-block">
             Запросить каталог
           </a>
         </div>

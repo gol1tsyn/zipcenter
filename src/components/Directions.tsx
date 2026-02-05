@@ -1,4 +1,3 @@
-import { useRef, MouseEvent } from 'react';
 import { Settings, Cpu, Droplets, Wrench } from 'lucide-react';
 
 const directions = [
@@ -25,28 +24,14 @@ const directions = [
 ];
 
 const Directions = () => {
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>, index: number) => {
-    const card = cardsRef.current[index];
-    if (!card) return;
-    
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    card.style.setProperty('--mouse-x', `${x}%`);
-    card.style.setProperty('--mouse-y', `${y}%`);
-  };
-
   return (
     <section id="directions" className="section-padding">
       <div className="container-custom">
-        <div className="text-center mb-16 reveal-on-scroll">
-          <span className="font-mono text-sm tracking-widest uppercase mb-4 block text-white/40">
+        <div className="text-center mb-16">
+          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Направления
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tighter text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
             Что мы предлагаем
           </h2>
         </div>
@@ -55,20 +40,18 @@ const Directions = () => {
           {directions.map((item, index) => (
             <div
               key={item.title}
-              ref={(el) => (cardsRef.current[index] = el)}
-              onMouseMove={(e) => handleMouseMove(e, index)}
-              className="card-glow p-8 group reveal-on-scroll"
+              className="card-glow p-8 group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="mb-6 p-3 w-fit glass-panel">
+              <div className="mb-6 p-3 border border-white/10 w-fit transition-all duration-500 group-hover:border-white/30 group-hover:bg-white/5">
                 <item.icon className="w-6 h-6 text-white/60 group-hover:text-white transition-colors duration-500" />
               </div>
               
-              <h3 className="text-xl font-medium mb-4 tracking-tighter text-white">
+              <h3 className="text-xl font-medium mb-4 tracking-tight">
                 {item.title}
               </h3>
               
-              <p className="leading-relaxed text-sm text-secondary">
+              <p className="text-white/50 leading-relaxed text-sm">
                 {item.description}
               </p>
             </div>

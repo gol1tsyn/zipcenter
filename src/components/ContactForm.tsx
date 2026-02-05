@@ -35,21 +35,21 @@ const ContactForm = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="container-custom">
-        <div className="max-w-2xl mx-auto text-center mb-12 reveal-on-scroll">
-          <span className="font-mono text-sm tracking-widest uppercase mb-4 block text-white/40">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Контакты
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tighter mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
             Оставьте запрос
             <br />
-            <span className="text-secondary">через контактную форму</span>
+            <span className="text-white/60">через контактную форму</span>
           </h2>
-          <p className="text-secondary">
+          <p className="text-white/50">
             или сразу напишите менеджеру в телеграме
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6 reveal-on-scroll" style={{ animationDelay: '200ms' }}>
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <input
               type="text"
@@ -93,9 +93,9 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting || isSubmitted}
-              className={`btn-ghost flex-1 flex items-center justify-center gap-2 ${
+              className={`btn-outline-hero flex-1 flex items-center justify-center gap-2 ${
                 isSubmitting ? 'animate-wiggle' : ''
-              } ${isSubmitted ? 'border-[hsl(142,76%,46%)]/50 text-[hsl(142,76%,46%)]' : ''}`}
+              } ${isSubmitted ? 'border-success/50 text-success' : ''}`}
             >
               {isSubmitted ? (
                 <Check className="w-5 h-5 animate-scale-in" />
