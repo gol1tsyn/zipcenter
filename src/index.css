@@ -42,7 +42,7 @@
     --success: 142 76% 46%;
     
     /* Cool grey for secondary text */
-    --text-secondary: 0 0% 60%;
+    --text-secondary: 0 0% 75%;
     
     /* Glass effects */
     --glass-bg: rgba(255, 255, 255, 0.02);
@@ -218,7 +218,7 @@
 
   /* Secondary text color */
   .text-secondary {
-    color: #999999;
+    color: #BFBFBF;
   }
 
   /* Form input style with glass effect */
