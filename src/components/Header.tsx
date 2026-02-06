@@ -66,19 +66,15 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+          {navItems.map((item) => (
               <motion.a 
                 key={item.label} 
                 href={item.href} 
-                className="relative text-base font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 py-2 group"
+                className="text-base font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 py-2"
                 whileHover={{ y: -1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <CloudGlowText>{item.label}</CloudGlowText>
-                {/* Hover underline glow */}
-                <span
-                  className="absolute -bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-accent/0 via-brand-accent to-brand-accent/0 rounded-full scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100 transition-all duration-300"
-                />
               </motion.a>
             ))}
           </nav>
