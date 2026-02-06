@@ -1,26 +1,25 @@
-import { Settings, Cpu, Droplets, Wrench } from 'lucide-react';
 import CloudGlowText from './CloudGlowText';
 
 const directions = [
   {
-    icon: Settings,
     title: 'Оборудование',
     description: 'Технологические правильные станки для заточки и производства дисковых пил, плоских ножей и PCD-инструмента.',
+    image: '/placeholder.svg', // Замените на реальное фото
   },
   {
-    icon: Cpu,
     title: 'Запасные части',
     description: 'Прямой доступ к оригинальным узлам и компонентам Vollmer, Göckel, Loroch. Гарантия полной совместимости и ресурса.',
+    image: '/placeholder.svg', // Замените на реальное фото
   },
   {
-    icon: Droplets,
     title: 'Расходные материалы',
     description: 'Профессиональный подбор шлифовальных кругов, электродов и концентратов СОЖ для оптимизации процессов шлифования.',
+    image: '/placeholder.svg', // Замените на реальное фото
   },
   {
-    icon: Wrench,
     title: 'Сервисный инжиниринг',
     description: 'Комплексное сопровождение: от пусконаладки и обучения персонала до аудита технологических процессов.',
+    image: '/placeholder.svg', // Замените на реальное фото
   },
 ];
 
@@ -41,20 +40,28 @@ const Directions = () => {
           {directions.map((item, index) => (
             <div
               key={item.title}
-              className="card-glow p-8 group"
+              className="card-glow group overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="mb-6 p-3 border border-white/10 w-fit transition-all duration-500 group-hover:border-white/30 group-hover:bg-white/5">
-                <item.icon className="w-6 h-6 text-white/60 group-hover:text-white transition-colors duration-500" />
+              {/* Photo container */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                />
               </div>
               
-              <h3 className="text-xl font-medium mb-4 tracking-tight">
-                {item.title}
-              </h3>
-              
-              <p className="text-white/50 leading-relaxed text-sm">
-                {item.description}
-              </p>
+              {/* Text content */}
+              <div className="p-6">
+                <h3 className="text-xl font-medium mb-3 tracking-tight">
+                  {item.title}
+                </h3>
+                
+                <p className="text-white/50 leading-relaxed text-sm">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
