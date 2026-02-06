@@ -167,14 +167,14 @@
 
   .cloud-glow-overlay {
     position: absolute;
-    top: 0;
+    top: -0.2em;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 0.4em);
     z-index: 20;
     pointer-events: none;
     background: radial-gradient(
-      ellipse 60px 200px at var(--glow-x) var(--glow-y),
+      ellipse 80px 200px at var(--glow-x) var(--glow-y),
       hsl(var(--brand-accent)) 0%,
       hsl(var(--brand-accent) / 0.7) 20%,
       hsl(var(--brand-accent) / 0.3) 40%,
