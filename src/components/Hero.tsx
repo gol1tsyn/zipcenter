@@ -1,5 +1,4 @@
 import heroBg from '@/assets/hero-bg.png';
-import CloudGlowText from './CloudGlowText';
 
 const Hero = () => {
   return (
@@ -17,7 +16,7 @@ const Hero = () => {
       <div className="relative z-10 container-custom text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-tight mb-8 animate-slide-up">
-            <CloudGlowText>Прецизионные технологии</CloudGlowText>
+            Прецизионные технологии
             <br />
             <span className="text-white/80">заточки и шлифования</span>
           </h1>

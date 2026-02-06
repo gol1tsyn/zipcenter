@@ -159,8 +159,6 @@
     --glow-x: 0px;
     --glow-y: 0px;
     --glow-opacity: 0;
-    padding-bottom: 0.15em;
-    margin-bottom: -0.15em;
   }
 
   .cloud-glow-base {
@@ -169,14 +167,14 @@
 
   .cloud-glow-overlay {
     position: absolute;
-    top: -0.1em;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: -0.1em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 20;
     pointer-events: none;
     background: radial-gradient(
-      ellipse 80px 200px at var(--glow-x) var(--glow-y),
+      ellipse 60px 200px at var(--glow-x) var(--glow-y),
       hsl(var(--brand-accent)) 0%,
       hsl(var(--brand-accent) / 0.7) 20%,
       hsl(var(--brand-accent) / 0.3) 40%,
