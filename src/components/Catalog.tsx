@@ -40,7 +40,7 @@ const Catalog = () => {
             Каталог
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            Оборудование
+            <span className="cloud-glow-text" data-text="Оборудование">Оборудование</span>
           </h2>
         </div>
         

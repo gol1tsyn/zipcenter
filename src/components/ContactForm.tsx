@@ -40,7 +40,7 @@ const ContactForm = () => {
             Контакты
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
-            Оставьте запрос
+            <span className="accent-static">Оставьте запрос</span>
             <br />
             <span className="text-white/60">через контактную форму</span>
           </h2>

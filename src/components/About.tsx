@@ -7,7 +7,7 @@ const About = () => {
               О компании
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-8">
-              Бескомпромиссные
+              <span className="cloud-glow-text" data-text="Бескомпромиссные">Бескомпромиссные</span>
               <br />
               <span className="text-white/60">решения</span>
             </h2>

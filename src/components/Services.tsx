@@ -25,7 +25,7 @@ const Services = () => {
             Сервис
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            Сервисное обслуживание
+            <span className="cloud-glow-text" data-text="Сервисное обслуживание">Сервисное обслуживание</span>
           </h2>
         </div>
         

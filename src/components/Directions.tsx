@@ -32,7 +32,7 @@ const Directions = () => {
             Направления
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            Что мы предлагаем
+            <span className="cloud-glow-text" data-text="Что мы предлагаем">Что мы предлагаем</span>
           </h2>
         </div>
         
