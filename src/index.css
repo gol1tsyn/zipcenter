@@ -176,11 +176,11 @@
     align-items: center;
     justify-content: center;
     background: radial-gradient(
-      ellipse 80px 200px at var(--glow-x) var(--glow-y),
+      ellipse 60px 120px at var(--glow-x) var(--glow-y),
       hsl(26 94% 47%) 0%,
-      hsl(26 94% 47% / 0.7) 20%,
-      hsl(26 94% 47% / 0.3) 40%,
-      transparent 70%
+      hsl(26 94% 47% / 0.6) 30%,
+      hsl(26 94% 47% / 0.2) 50%,
+      transparent 65%
     );
     -webkit-background-clip: text;
     background-clip: text;
