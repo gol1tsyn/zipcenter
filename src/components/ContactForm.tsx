@@ -22,19 +22,20 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       initial={{ 
         color: 'hsl(var(--muted-foreground))', 
         textShadow: '0 0 0px rgba(235, 111, 5, 0)',
-        opacity: 0.6
+        opacity: 0.4
       }}
       whileInView={{ 
         color: '#EB6F05', 
-        textShadow: '0 0 30px rgba(235, 111, 5, 0.4)',
+        textShadow: '0 0 40px rgba(235, 111, 5, 0.5)',
         opacity: 1
       }}
-      viewport={{ once: false, amount: 0.5, margin: '-50px' }}
+      viewport={{ once: false, amount: 0.8, margin: '-100px' }}
       transition={{ 
-        duration: 0.8, 
-        ease: 'easeOut',
-        color: { duration: 0.6 },
-        textShadow: { duration: 1, delay: 0.2 }
+        duration: 1.8, 
+        ease: [0.22, 1, 0.36, 1],
+        color: { duration: 1.5, delay: 0.3 },
+        textShadow: { duration: 2, delay: 0.5 },
+        opacity: { duration: 1.2 }
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
