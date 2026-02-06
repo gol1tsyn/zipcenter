@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
 import CloudGlowText from './CloudGlowText';
 
 const navItems = [
@@ -55,110 +54,50 @@ const Header = () => {
       <div className="container-custom relative z-10">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <motion.a 
+          <a 
             href="#" 
             className="flex items-center gap-3"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
             <CloudGlowText className="text-xl font-semibold tracking-tight">ЗИП-Центр</CloudGlowText>
-          </motion.a>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-              <motion.a 
+            {navItems.map((item) => (
+              <a 
                 key={item.label} 
                 href={item.href} 
                 className="text-base font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 py-2"
-                whileHover={{ y: -1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <CloudGlowText>{item.label}</CloudGlowText>
-              </motion.a>
+              </a>
             ))}
           </nav>
 
-          {/* CTA Button - Glass Style */}
-          <motion.a
-            href="#contact"
-            className="hidden md:flex items-center px-5 py-2.5 text-sm font-medium rounded-full relative overflow-hidden group"
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-            }}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-          >
-            {/* Button hover glow */}
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{
-                background: 'linear-gradient(135deg, rgba(235, 111, 5, 0.2) 0%, rgba(236, 72, 153, 0.1) 50%, rgba(59, 130, 246, 0.2) 100%)',
-              }}
-            />
-            <span className="relative z-10 text-foreground">Связаться</span>
-          </motion.a>
-
           {/* Mobile Menu Button */}
-          <motion.button
+          <button
             className="md:hidden p-2 relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              initial={false}
-              animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.div>
-          </motion.button>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isMobileMenuOpen ? 'auto' : 0,
-            opacity: isMobileMenuOpen ? 1 : 0,
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="md:hidden overflow-hidden"
-        >
-          <nav className="flex flex-col gap-3 py-4">
-            {navItems.map((item, index) => (
-              <motion.a
+        {isMobileMenuOpen && (
+          <nav className="md:hidden flex flex-col gap-3 py-4">
+            {navItems.map((item) => (
+              <a
                 key={item.label}
                 href={item.href}
                 className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
-                initial={{ x: -20, opacity: 0 }}
-                animate={isMobileMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
               >
                 <CloudGlowText>{item.label}</CloudGlowText>
-              </motion.a>
+              </a>
             ))}
-            {/* Mobile CTA */}
-            <motion.a
-              href="#contact"
-              className="mt-2 px-5 py-3 text-center text-sm font-medium rounded-full"
-              style={{
-                background: 'rgba(235, 111, 5, 0.15)',
-                border: '1px solid rgba(235, 111, 5, 0.3)',
-              }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              initial={{ x: -20, opacity: 0 }}
-              animate={isMobileMenuOpen ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-              transition={{ delay: navItems.length * 0.05, duration: 0.3 }}
-            >
-              Связаться
-            </motion.a>
           </nav>
-        </motion.div>
+        )}
       </div>
     </header>
   );
