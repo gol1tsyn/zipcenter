@@ -1,4 +1,4 @@
-import CloudGlowText from './CloudGlowText';
+import ScrollRevealText from './ScrollRevealText';
 
 const products = [
   {
@@ -42,7 +42,7 @@ const Catalog = () => {
             Каталог
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <CloudGlowText>Оборудование</CloudGlowText>
+            <ScrollRevealText>Оборудование</ScrollRevealText>
           </h2>
         </div>
         

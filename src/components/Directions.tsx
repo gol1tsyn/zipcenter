@@ -1,4 +1,4 @@
-import CloudGlowText from './CloudGlowText';
+import ScrollRevealText from './ScrollRevealText';
 import equipmentImg from '@/assets/equipment.jpg';
 import sparePartsImg from '@/assets/consumables.jpg';
 import consumablesImg from '@/assets/spare-parts.jpg';
@@ -36,7 +36,7 @@ const Directions = () => {
             Направления
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <CloudGlowText>Что мы предлагаем</CloudGlowText>
+            <ScrollRevealText>Что мы предлагаем</ScrollRevealText>
           </h2>
         </div>
         

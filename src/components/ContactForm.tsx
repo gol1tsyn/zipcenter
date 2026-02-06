@@ -1,63 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Check } from 'lucide-react';
-import { motion } from 'framer-motion';
-
-// Special component combining scroll reveal + hover cloud glow
-const ScrollRevealCloudText = ({ children }: { children: string }) => {
-  const containerRef = useRef<HTMLSpanElement>(null);
-  const [glowPosition, setGlowPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLSpanElement>) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setGlowPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
-  return (
-    <motion.span
-      ref={containerRef}
-      className="relative inline-block cursor-pointer"
-      style={{ padding: '0.15em 0', margin: '-0.15em 0' }}
-      initial={{ 
-        color: 'hsl(0 0% 10%)', 
-        textShadow: '0 0 0px rgba(235, 111, 5, 0)',
-      }}
-      whileInView={{ 
-        color: '#EB6F05', 
-        textShadow: '0 0 40px rgba(235, 111, 5, 0.5)',
-      }}
-      viewport={{ once: false, amount: 0.8, margin: '-100px' }}
-      transition={{ 
-        duration: 3, 
-        ease: [0.22, 1, 0.36, 1],
-        color: { duration: 2.5, delay: 0.3 },
-        textShadow: { duration: 3, delay: 0.8 },
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Base text */}
-      <span className="relative z-10">{children}</span>
-      
-      {/* Hover color overlay */}
-      <span 
-        className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center transition-opacity duration-200"
-        style={{
-          backgroundImage: `radial-gradient(ellipse 70px 140px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.5) 40%, transparent 70%)`,
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          color: 'transparent',
-          opacity: isHovered ? 1 : 0,
-        }}
-        aria-hidden="true"
-      >
-        {children}
-      </span>
-    </motion.span>
-  );
-};
+import ScrollRevealText from './ScrollRevealText';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,7 +41,7 @@ const ContactForm = () => {
             Контакты
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
-            <ScrollRevealCloudText>Оставьте запрос</ScrollRevealCloudText>
+            <ScrollRevealText>Оставьте запрос</ScrollRevealText>
             <br />
             <span className="text-foreground/60">через контактную форму</span>
           </h2>

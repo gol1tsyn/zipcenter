@@ -1,4 +1,4 @@
-import CloudGlowText from './CloudGlowText';
+import ScrollRevealText from './ScrollRevealText';
 
 const services = [
   {
@@ -27,7 +27,7 @@ const Services = () => {
             Сервис
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <CloudGlowText>Сервисное обслуживание</CloudGlowText>
+            <ScrollRevealText>Сервисное обслуживание</ScrollRevealText>
           </h2>
         </div>
         
