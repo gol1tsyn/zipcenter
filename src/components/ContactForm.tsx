@@ -19,7 +19,7 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       ref={containerRef}
       className="relative inline-block cursor-pointer"
       style={{ padding: '0.15em 0', margin: '-0.15em 0' }}
-      initial={{ color: 'rgba(255, 255, 255, 0.6)', textShadow: '0 0 0px rgba(235, 111, 5, 0)' }}
+      initial={{ color: 'hsl(var(--muted-foreground))', textShadow: '0 0 0px rgba(235, 111, 5, 0)' }}
       whileInView={{ 
         color: '#EB6F05', 
         textShadow: '0 0 20px rgba(235, 111, 5, 0.2)' 
@@ -86,15 +86,15 @@ const ContactForm = () => {
     <section id="contact" className="section-padding">
       <div className="container-custom">
         <div className="max-w-2xl mx-auto text-center mb-12">
-          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
+          <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
             Контакты
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
             <ScrollRevealCloudText>Оставьте запрос</ScrollRevealCloudText>
             <br />
-            <span className="text-white/60">через контактную форму</span>
+            <span className="text-foreground/60">через контактную форму</span>
           </h2>
-          <p className="text-white/50">
+          <p className="text-muted-foreground">
             или сразу напишите менеджеру в телеграме
           </p>
         </div>
