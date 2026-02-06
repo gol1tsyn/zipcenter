@@ -10,8 +10,8 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       
-      {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/90" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/90" />
       
       {/* Content */}
       <div className="relative z-10 container-custom text-center">
@@ -19,10 +19,10 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-tight mb-8 animate-slide-up">
             <CloudGlowText>Прецизионные технологии</CloudGlowText>
             <br />
-            <span className="text-white/80">заточки и шлифования</span>
+            <span className="text-foreground/80">заточки и шлифования</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
+          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
             ЗИП-Центр — технологический партнер ведущих немецких машиностроителей: 
             Vollmer, Göckel и Loroch. Мы внедряем экосистему для обслуживания инструмента, 
             которая работает десятилетиями: от поставок станков с ЧПУ до прямого снабжения 
@@ -42,7 +42,7 @@ const Hero = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-px h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0" />
+        <div className="w-px h-16 bg-gradient-to-b from-foreground/0 via-foreground/30 to-foreground/0" />
       </div>
     </section>
   );
