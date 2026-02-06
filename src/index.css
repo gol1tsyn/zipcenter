@@ -268,4 +268,18 @@
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
   .delay-600 { animation-delay: 600ms; }
+
+  /* Glow in animation for scroll reveal */
+  @keyframes glow-in {
+    from {
+      text-shadow: 0 0 0px hsl(26 94% 47% / 0);
+    }
+    to {
+      text-shadow: 0 0 30px hsl(26 94% 47% / 0.3);
+    }
+  }
+
+  .animate-glow-in {
+    animation: glow-in 0.7s ease-out forwards;
+  }
 }
