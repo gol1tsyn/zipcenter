@@ -34,25 +34,19 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       <span className="relative z-10">{children}</span>
       
       {/* Hover color overlay */}
-      <motion.span 
-        className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center"
+      <span 
+        className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center transition-opacity duration-200"
         style={{
-          background: `radial-gradient(ellipse 60px 120px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.6) 30%, rgba(235, 111, 5, 0.2) 50%, transparent 65%)`,
+          background: `radial-gradient(ellipse 70px 140px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.5) 40%, transparent 70%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ 
-          type: 'spring',
-          stiffness: 300,
-          damping: 20
+          opacity: isHovered ? 1 : 0,
         }}
         aria-hidden="true"
       >
         {children}
-      </motion.span>
+      </span>
     </motion.span>
   );
 };
