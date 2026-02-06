@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Special component combining scroll reveal + hover cloud glow
 const ScrollRevealCloudText = ({ children }: { children: string }) => {
@@ -22,7 +22,7 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       initial={{ color: 'rgba(255, 255, 255, 0.6)', textShadow: '0 0 0px rgba(235, 111, 5, 0)' }}
       whileInView={{ 
         color: '#EB6F05', 
-        textShadow: '0 0 30px rgba(235, 111, 5, 0.3)' 
+        textShadow: '0 0 20px rgba(235, 111, 5, 0.2)' 
       }}
       viewport={{ once: false, amount: 0.5 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -30,37 +30,6 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow layer */}
-      <AnimatePresence>
-        {isHovered && (
-          <motion.span
-            className="absolute pointer-events-none z-0"
-            style={{
-              left: glowPosition.x,
-              top: glowPosition.y,
-              transform: 'translate(-50%, -50%)',
-            }}
-            initial={{ width: 90, height: 200, opacity: 0 }}
-            animate={{ width: 110, height: 220, opacity: 0.7 }}
-            exit={{ width: 90, height: 200, opacity: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 300,
-              damping: 20,
-              opacity: { duration: 0.2 }
-            }}
-          >
-            <span 
-              className="absolute inset-0 rounded-full"
-              style={{
-                background: 'radial-gradient(ellipse at center, #EB6F05 0%, rgba(235, 111, 5, 0.5) 30%, rgba(235, 111, 5, 0.2) 50%, transparent 70%)',
-                filter: 'blur(50px)',
-              }}
-            />
-          </motion.span>
-        )}
-      </AnimatePresence>
-
       {/* Base text */}
       <span className="relative z-10">{children}</span>
       
@@ -68,14 +37,18 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       <motion.span 
         className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center"
         style={{
-          background: `radial-gradient(ellipse 80px 200px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.7) 20%, rgba(235, 111, 5, 0.3) 40%, transparent 70%)`,
+          background: `radial-gradient(ellipse 60px 120px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.6) 30%, rgba(235, 111, 5, 0.2) 50%, transparent 65%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ 
+          type: 'spring',
+          stiffness: 300,
+          damping: 20
+        }}
         aria-hidden="true"
       >
         {children}
