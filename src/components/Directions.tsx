@@ -1,25 +1,29 @@
 import CloudGlowText from './CloudGlowText';
+import equipmentImg from '@/assets/equipment.jpg';
+import sparePartsImg from '@/assets/consumables.jpg';
+import consumablesImg from '@/assets/spare-parts.jpg';
+import serviceImg from '@/assets/service.jpg';
 
 const directions = [
   {
     title: 'Оборудование',
     description: 'Технологические правильные станки для заточки и производства дисковых пил, плоских ножей и PCD-инструмента.',
-    image: '/placeholder.svg', // Замените на реальное фото
+    image: equipmentImg,
   },
   {
     title: 'Запасные части',
     description: 'Прямой доступ к оригинальным узлам и компонентам Vollmer, Göckel, Loroch. Гарантия полной совместимости и ресурса.',
-    image: '/placeholder.svg', // Замените на реальное фото
+    image: sparePartsImg,
   },
   {
     title: 'Расходные материалы',
     description: 'Профессиональный подбор шлифовальных кругов, электродов и концентратов СОЖ для оптимизации процессов шлифования.',
-    image: '/placeholder.svg', // Замените на реальное фото
+    image: consumablesImg,
   },
   {
     title: 'Сервисный инжиниринг',
     description: 'Комплексное сопровождение: от пусконаладки и обучения персонала до аудита технологических процессов.',
-    image: '/placeholder.svg', // Замените на реальное фото
+    image: serviceImg,
   },
 ];
 
