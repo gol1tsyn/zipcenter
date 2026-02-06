@@ -33,7 +33,27 @@ const CloudGlowText = ({ children, className = '' }: CloudGlowTextProps) => {
         '--glow-opacity': isHovered ? 1 : 0,
       } as React.CSSProperties}
     >
+      {/* Glow aura behind text */}
+      <span 
+        className="absolute pointer-events-none transition-opacity duration-200"
+        style={{
+          left: glowPosition.x,
+          top: glowPosition.y,
+          transform: 'translate(-50%, -50%)',
+          width: '80px',
+          height: '80px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(235, 111, 5, 0.6) 0%, rgba(235, 111, 5, 0.3) 40%, transparent 70%)',
+          filter: 'blur(15px)',
+          opacity: isHovered ? 0.8 : 0,
+          zIndex: 5,
+        }}
+      />
+      
+      {/* Base text layer */}
       <span className="cloud-glow-base">{children}</span>
+      
+      {/* Colored text overlay */}
       <span className="cloud-glow-overlay" aria-hidden="true">{children}</span>
     </span>
   );
