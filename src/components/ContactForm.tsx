@@ -19,13 +19,23 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       ref={containerRef}
       className="relative inline-block cursor-pointer"
       style={{ padding: '0.15em 0', margin: '-0.15em 0' }}
-      initial={{ color: 'hsl(var(--muted-foreground))', textShadow: '0 0 0px rgba(235, 111, 5, 0)' }}
+      initial={{ 
+        color: 'hsl(var(--muted-foreground))', 
+        textShadow: '0 0 0px rgba(235, 111, 5, 0)',
+        opacity: 0.6
+      }}
       whileInView={{ 
         color: '#EB6F05', 
-        textShadow: '0 0 20px rgba(235, 111, 5, 0.2)' 
+        textShadow: '0 0 30px rgba(235, 111, 5, 0.4)',
+        opacity: 1
       }}
-      viewport={{ once: false, amount: 0.5 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: false, amount: 0.5, margin: '-50px' }}
+      transition={{ 
+        duration: 0.8, 
+        ease: 'easeOut',
+        color: { duration: 0.6 },
+        textShadow: { duration: 1, delay: 0.2 }
+      }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
