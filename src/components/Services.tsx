@@ -1,3 +1,5 @@
+import CloudGlowText from './CloudGlowText';
+
 const services = [
   {
     index: '01',
@@ -25,7 +27,7 @@ const Services = () => {
             Сервис
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <span className="cloud-glow-text" data-text="Сервисное обслуживание">Сервисное обслуживание</span>
+            <CloudGlowText>Сервисное обслуживание</CloudGlowText>
           </h2>
         </div>
         

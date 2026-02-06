@@ -1,4 +1,5 @@
 import { Settings, Cpu, Droplets, Wrench } from 'lucide-react';
+import CloudGlowText from './CloudGlowText';
 
 const directions = [
   {
@@ -32,7 +33,7 @@ const Directions = () => {
             Направления
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <span className="cloud-glow-text" data-text="Что мы предлагаем">Что мы предлагаем</span>
+            <CloudGlowText>Что мы предлагаем</CloudGlowText>
           </h2>
         </div>
         

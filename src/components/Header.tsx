@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import CloudGlowText from './CloudGlowText';
 
 const navItems = [
   { label: 'Оборудование', href: '#directions' },
@@ -30,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <span className="text-xl font-semibold tracking-tight cloud-glow-text" data-text="ЗИП-Центр">ЗИП-Центр</span>
+            <CloudGlowText className="text-xl font-semibold tracking-tight">ЗИП-Центр</CloudGlowText>
           </a>
 
           {/* Desktop Navigation */}

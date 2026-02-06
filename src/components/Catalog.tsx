@@ -1,3 +1,5 @@
+import CloudGlowText from './CloudGlowText';
+
 const products = [
   {
     title: 'VOLLMER CHD 270',
@@ -40,7 +42,7 @@ const Catalog = () => {
             Каталог
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <span className="cloud-glow-text" data-text="Оборудование">Оборудование</span>
+            <CloudGlowText>Оборудование</CloudGlowText>
           </h2>
         </div>
         
