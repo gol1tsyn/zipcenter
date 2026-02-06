@@ -22,7 +22,7 @@ const Hero = () => {
             <span className="text-foreground/80">заточки и шлифования</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-foreground/60 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
+          <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
             ЗИП-Центр — технологический партнер ведущих немецких машиностроителей: 
             Vollmer, Göckel и Loroch. Мы внедряем экосистему для обслуживания инструмента, 
             которая работает десятилетиями: от поставок станков с ЧПУ до прямого снабжения 
