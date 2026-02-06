@@ -1,34 +1,16 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,10 +40,19 @@ const ContactForm = () => {
           <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Контакты
           </span>
-          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
-            <span className={`transition-all duration-[1500ms] ${isVisible ? 'accent-static animate-glow-in' : 'text-white/60'}`}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+            <motion.span
+              initial={{ color: 'rgba(255, 255, 255, 0.6)', textShadow: '0 0 0px rgba(235, 111, 5, 0)' }}
+              whileInView={{ 
+                color: '#EB6F05', 
+                textShadow: '0 0 30px rgba(235, 111, 5, 0.3)' 
+              }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              className="inline-block"
+            >
               Оставьте запрос
-            </span>
+            </motion.span>
             <br />
             <span className="text-white/60">через контактную форму</span>
           </h2>
