@@ -176,7 +176,7 @@
     align-items: center;
     justify-content: center;
     background-image: radial-gradient(
-      ellipse 70px 140px at var(--glow-x) var(--glow-y),
+      ellipse 120px 140px at var(--glow-x) var(--glow-y),
       #EB6F05 0%,
       rgba(235, 111, 5, 0.5) 40%,
       transparent 70%
