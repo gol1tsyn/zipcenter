@@ -159,6 +159,8 @@
     --glow-x: 0px;
     --glow-y: 0px;
     --glow-opacity: 0;
+    padding: 0.15em 0;
+    margin: -0.15em 0;
   }
 
   .cloud-glow-base {
@@ -167,10 +169,7 @@
 
   .cloud-glow-overlay {
     position: absolute;
-    top: -0.2em;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 0.4em);
+    inset: 0;
     z-index: 20;
     pointer-events: none;
     background: radial-gradient(
