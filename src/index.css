@@ -279,6 +279,6 @@
   }
 
   .animate-glow-in {
-    animation: glow-in 0.7s ease-out forwards;
+    animation: glow-in 1.5s ease-out forwards;
   }
 }

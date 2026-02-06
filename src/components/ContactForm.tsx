@@ -59,7 +59,7 @@ const ContactForm = () => {
             Контакты
           </span>
           <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
-            <span className={`transition-all duration-700 ${isVisible ? 'accent-static animate-glow-in' : 'text-white/60'}`}>
+            <span className={`transition-all duration-[1500ms] ${isVisible ? 'accent-static animate-glow-in' : 'text-white/60'}`}>
               Оставьте запрос
             </span>
             <br />
