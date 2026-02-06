@@ -34,7 +34,7 @@ const Hero = () => {
               Каталог
             </a>
             <a href="#contact" className="btn-outline-hero cloud-glow-button">
-              Консультация
+              <CloudGlowText>Консультация</CloudGlowText>
             </a>
           </div>
         </div>
