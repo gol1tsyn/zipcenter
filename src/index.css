@@ -195,12 +195,11 @@
   }
 
   .cloud-glow-button:hover {
-    background-color: hsl(var(--brand-accent));
-    border-color: hsl(var(--brand-accent));
+    background-color: hsl(26 94% 47% / 0.15);
+    border-color: hsl(26 94% 47% / 0.6);
     box-shadow: 
-      0 0 20px hsl(var(--brand-accent) / 0.4),
-      0 0 40px hsl(var(--brand-accent) / 0.2),
-      0 0 60px hsl(var(--brand-accent) / 0.1);
+      0 0 20px hsl(26 94% 47% / 0.2),
+      0 0 40px hsl(26 94% 47% / 0.1);
   }
 
   /* Static accent color for CTAs */
