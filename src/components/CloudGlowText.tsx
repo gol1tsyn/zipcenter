@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface CloudGlowTextProps {
   children: string;
@@ -24,29 +23,18 @@ const CloudGlowText = ({ children, className = '' }: CloudGlowTextProps) => {
   return (
     <span
       ref={containerRef}
-      className={`relative inline-block cursor-pointer ${className}`}
+      className={`cloud-glow-wrapper ${className}`}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ padding: '0.15em 0', margin: '-0.15em 0' }}
+      style={{
+        '--glow-x': `${glowPosition.x}px`,
+        '--glow-y': `${glowPosition.y}px`,
+        '--glow-opacity': isHovered ? 1 : 0,
+      } as React.CSSProperties}
     >
-      {/* Base text layer */}
-      <span className="relative z-10">{children}</span>
-      
-      {/* Colored overlay text - follows cursor */}
-      <span 
-        className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center transition-opacity duration-200"
-        style={{
-          background: `radial-gradient(ellipse 70px 140px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.5) 40%, transparent 70%)`,
-          WebkitBackgroundClip: 'text',
-          backgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          opacity: isHovered ? 1 : 0,
-        }}
-        aria-hidden="true"
-      >
-        {children}
-      </span>
+      <span className="cloud-glow-base">{children}</span>
+      <span className="cloud-glow-overlay" aria-hidden="true">{children}</span>
     </span>
   );
 };
