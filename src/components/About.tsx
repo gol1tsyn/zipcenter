@@ -1,4 +1,4 @@
-import CloudGlowText from './CloudGlowText';
+import ScrollRevealText from './ScrollRevealText';
 import vollmerLogo from '@/assets/vollmer-logo.svg';
 import gockelLogo from '@/assets/gockel-logo.svg';
 import lorochLogo from '@/assets/loroch-logo.svg';
@@ -13,7 +13,7 @@ const About = () => {
               О компании
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-8">
-              <CloudGlowText>Бескомпромиссные</CloudGlowText>
+              <ScrollRevealText>Бескомпромиссные</ScrollRevealText>
               <br />
               <span className="text-foreground/60">решения</span>
             </h2>
