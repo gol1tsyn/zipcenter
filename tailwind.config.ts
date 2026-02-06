@@ -53,6 +53,7 @@ export default {
         },
         telegram: "hsl(var(--telegram))",
         success: "hsl(var(--success))",
+        "brand-accent": "hsl(var(--brand-accent))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
