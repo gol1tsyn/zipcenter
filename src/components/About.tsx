@@ -1,3 +1,5 @@
+import CloudGlowText from './CloudGlowText';
+
 const About = () => {
   return <section className="section-padding border-y border-white/5">
       <div className="container-custom">
@@ -7,7 +9,7 @@ const About = () => {
               О компании
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-8">
-              <span className="cloud-glow-text" data-text="Бескомпромиссные">Бескомпромиссные</span>
+              <CloudGlowText>Бескомпромиссные</CloudGlowText>
               <br />
               <span className="text-white/60">решения</span>
             </h2>
