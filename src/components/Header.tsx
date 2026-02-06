@@ -38,7 +38,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a key={item.label} href={item.href} className="nav-link">
-                {item.label}
+                <CloudGlowText>{item.label}</CloudGlowText>
               </a>
             ))}
           </nav>
@@ -68,7 +68,7 @@ const Header = () => {
                   className="nav-link text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  <CloudGlowText>{item.label}</CloudGlowText>
                 </a>
               ))}
               <span className="badge-pill w-fit mt-4">VOLLMER · GÖCKEL · LOROCH</span>
