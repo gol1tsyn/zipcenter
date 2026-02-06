@@ -20,9 +20,9 @@ const About = () => {
             
             {/* Partner Logos */}
             <div className="flex items-center gap-6 mt-6">
-              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
-              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
+              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
+              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
             </div>
           </div>
           
