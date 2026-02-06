@@ -1,14 +1,11 @@
 import heroBg from '@/assets/hero-bg.png';
 import ScrollRevealText from './ScrollRevealText';
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${heroBg})`
+    }} />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/60 to-background" />
@@ -42,10 +39,8 @@ const Hero = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-px h-16 bg-gradient-to-b from-foreground/0 via-foreground/30 to-foreground/0" />
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
