@@ -20,10 +20,10 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="section-padding border-y border-white/5">
+    <section id="services" className="section-padding border-y border-border">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
+          <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
             Сервис
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
@@ -42,11 +42,11 @@ const Services = () => {
                 {service.title}
               </h3>
               
-              <p className="text-white/50 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
               
-              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-white/0 via-white/10 to-white/0" />
+              <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-foreground/0 via-foreground/10 to-foreground/0" />
             </div>
           ))}
         </div>

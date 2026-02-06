@@ -32,7 +32,7 @@ const Directions = () => {
     <section id="directions" className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
+          <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
             Направления
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
@@ -62,7 +62,7 @@ const Directions = () => {
                   {item.title}
                 </h3>
                 
-                <p className="text-white/50 leading-relaxed text-sm">
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   {item.description}
                 </p>
               </div>
