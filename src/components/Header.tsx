@@ -40,7 +40,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="nav-link">
+              <a key={item.label} href={item.href} className="nav-link text-base">
                 <CloudGlowText>{item.label}</CloudGlowText>
               </a>
             ))}
