@@ -10,40 +10,6 @@ const navItems = [
   { label: 'Контакты', href: '#contact' },
 ];
 
-interface LiquidBlobProps {
-  color: string;
-  size: string;
-  position: { left?: string; right?: string; top: string };
-  opacity: number;
-  duration: number;
-  xMovement: number[];
-  yMovement: number[];
-  scaleMovement: number[];
-}
-
-const LiquidBlob = ({ color, size, position, opacity, duration, xMovement, yMovement, scaleMovement }: LiquidBlobProps) => (
-  <motion.div
-    className={`absolute ${size} rounded-full`}
-    style={{
-      background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-      mixBlendMode: 'screen',
-      opacity,
-      ...position,
-    }}
-    animate={{
-      x: xMovement,
-      y: yMovement,
-      scale: scaleMovement,
-    }}
-    transition={{
-      duration,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut",
-    }}
-  />
-);
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -71,58 +37,6 @@ const Header = () => {
             backgroundColor: 'rgba(255, 255, 255, 0.08)',
           }}
         />
-        
-        {/* Animated Liquid Blobs */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Pink Blob */}
-          <LiquidBlob
-            color="rgba(236, 72, 153, 0.6)"
-            size="w-32 h-32"
-            position={{ left: '10%', top: '-20%' }}
-            opacity={0.4}
-            duration={8}
-            xMovement={[0, 30, -20, 0]}
-            yMovement={[0, 20, -10, 0]}
-            scaleMovement={[1, 1.3, 0.9, 1]}
-          />
-          
-          {/* Electric Blue Blob */}
-          <LiquidBlob
-            color="rgba(59, 130, 246, 0.5)"
-            size="w-40 h-40"
-            position={{ left: '40%', top: '-30%' }}
-            opacity={0.35}
-            duration={10}
-            xMovement={[0, -40, 30, 0]}
-            yMovement={[0, 15, -20, 0]}
-            scaleMovement={[1, 0.8, 1.2, 1]}
-          />
-          
-          {/* Deep Purple Blob */}
-          <LiquidBlob
-            color="rgba(139, 92, 246, 0.5)"
-            size="w-36 h-36"
-            position={{ right: '15%', top: '-25%' }}
-            opacity={0.4}
-            duration={12}
-            xMovement={[0, 25, -35, 0]}
-            yMovement={[0, -15, 25, 0]}
-            scaleMovement={[1, 1.1, 0.85, 1]}
-          />
-          
-          {/* Orange Accent Blob */}
-          <LiquidBlob
-            color="rgba(235, 111, 5, 0.5)"
-            size="w-28 h-28"
-            position={{ right: '35%', top: '-15%' }}
-            opacity={0.3}
-            duration={9}
-            xMovement={[0, -20, 40, 0]}
-            yMovement={[0, 25, -15, 0]}
-            scaleMovement={[1, 1.25, 0.95, 1]}
-          />
-        </div>
-
         {/* Noise Texture Overlay */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
