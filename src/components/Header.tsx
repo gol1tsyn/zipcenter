@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import CloudGlowText from './CloudGlowText';
+import vollmerLogo from '@/assets/vollmer-logo.svg';
+import gockelLogo from '@/assets/gockel-logo.svg';
+import lorochLogo from '@/assets/loroch-logo.svg';
 
 const navItems = [
   { label: 'Оборудование', href: '#directions' },
@@ -43,9 +46,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Badge */}
-          <div className="hidden lg:block">
-            <span className="badge-pill">VOLLMER · GÖCKEL · LOROCH</span>
+          {/* Partner Logos */}
+          <div className="hidden lg:flex items-center gap-4">
+            <img src={vollmerLogo} alt="Vollmer" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+            <img src={gockelLogo} alt="Göckel" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
+            <img src={lorochLogo} alt="Loroch" className="h-6 w-auto opacity-60 hover:opacity-100 transition-opacity" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,7 +76,11 @@ const Header = () => {
                   <CloudGlowText>{item.label}</CloudGlowText>
                 </a>
               ))}
-              <span className="badge-pill w-fit mt-4">VOLLMER · GÖCKEL · LOROCH</span>
+              <div className="flex items-center gap-3 mt-4">
+                <img src={vollmerLogo} alt="Vollmer" className="h-5 w-auto opacity-60" />
+                <img src={gockelLogo} alt="Göckel" className="h-5 w-auto opacity-60" />
+                <img src={lorochLogo} alt="Loroch" className="h-5 w-auto opacity-60" />
+              </div>
             </nav>
           </div>
         )}
