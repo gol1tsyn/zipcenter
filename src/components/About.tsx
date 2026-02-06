@@ -1,7 +1,11 @@
 import CloudGlowText from './CloudGlowText';
+import vollmerLogo from '@/assets/vollmer-logo.svg';
+import gockelLogo from '@/assets/gockel-logo.svg';
+import lorochLogo from '@/assets/loroch-logo.svg';
 
 const About = () => {
-  return <section className="section-padding border-y border-border">
+  return (
+    <section className="section-padding border-y border-border">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -13,6 +17,13 @@ const About = () => {
               <br />
               <span className="text-foreground/60">решения</span>
             </h2>
+            
+            {/* Partner Logos */}
+            <div className="flex items-center gap-6 mt-6">
+              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+            </div>
           </div>
           
           <div>
@@ -28,11 +39,11 @@ const About = () => {
               квалифицированный сервис и обучат ваших специалистов в любой 
               точке страны.
             </p>
-            
-            
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;

@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import CloudGlowText from './CloudGlowText';
-import vollmerLogo from '@/assets/vollmer-logo.svg';
-import gockelLogo from '@/assets/gockel-logo.svg';
-import lorochLogo from '@/assets/loroch-logo.svg';
 
 const navItems = [
   { label: 'Оборудование', href: '#directions' },
@@ -38,20 +35,13 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
-              <a key={item.label} href={item.href} className="nav-link text-base">
+              <a key={item.label} href={item.href} className="nav-link text-lg">
                 <CloudGlowText>{item.label}</CloudGlowText>
               </a>
             ))}
           </nav>
-
-          {/* Partner Logos */}
-          <div className="hidden lg:flex items-center gap-5">
-            <img src={vollmerLogo} alt="Vollmer" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-            <img src={gockelLogo} alt="Göckel" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-            <img src={lorochLogo} alt="Loroch" className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" />
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -70,17 +60,12 @@ const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="nav-link text-lg"
+                  className="nav-link text-xl"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <CloudGlowText>{item.label}</CloudGlowText>
                 </a>
               ))}
-              <div className="flex items-center gap-4 mt-4">
-                <img src={vollmerLogo} alt="Vollmer" className="h-6 w-auto opacity-60" />
-                <img src={gockelLogo} alt="Göckel" className="h-6 w-auto opacity-60" />
-                <img src={lorochLogo} alt="Loroch" className="h-6 w-auto opacity-60" />
-              </div>
             </nav>
           </div>
         )}
