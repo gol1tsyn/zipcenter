@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Check, Send } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,17 +114,14 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting || isSubmitted}
-              className={`btn-outline-hero cloud-glow-button flex-1 flex items-center justify-center gap-2 ${isSubmitted ? 'border-success/50 text-success !bg-transparent !shadow-none' : ''}`}
+              className={`btn-outline-hero cloud-glow-button flex-1 flex items-center justify-center gap-2 ${isSubmitted ? 'border-[hsl(142,76%,46%)] text-[hsl(142,76%,46%)] !bg-transparent !shadow-none' : ''}`}
             >
               {isSubmitted ? (
                 <Check className="w-5 h-5 animate-scale-in" />
               ) : isSubmitting ? (
                 <span className="opacity-50">Отправка...</span>
               ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  <span>Отправить</span>
-                </>
+                <span>Отправить</span>
               )}
             </button>
             
