@@ -30,23 +30,6 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow aura behind text */}
-      <span 
-        className="absolute pointer-events-none transition-opacity duration-200"
-        style={{
-          left: glowPosition.x,
-          top: glowPosition.y,
-          transform: 'translate(-50%, -50%)',
-          width: '110px',
-          height: '110px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(235, 111, 5, 0.6) 0%, rgba(235, 111, 5, 0.3) 40%, transparent 70%)',
-          filter: 'blur(30px)',
-          opacity: isHovered ? 0.8 : 0,
-          zIndex: 5,
-        }}
-      />
-      
       {/* Base text */}
       <span className="relative z-10">{children}</span>
       
