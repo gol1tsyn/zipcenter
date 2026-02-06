@@ -1,15 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Check, Send } from 'lucide-react';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,8 +58,10 @@ const ContactForm = () => {
           <span className="font-mono text-sm text-white/40 tracking-widest uppercase mb-4 block">
             Контакты
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
-            <span className="accent-static">Оставьте запрос</span>
+          <h2 ref={headingRef} className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+            <span className={`transition-all duration-700 ${isVisible ? 'accent-static animate-glow-in' : 'text-white/60'}`}>
+              Оставьте запрос
+            </span>
             <br />
             <span className="text-white/60">через контактную форму</span>
           </h2>
@@ -93,9 +114,9 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting || isSubmitted}
-              className={`btn-outline-hero flex-1 flex items-center justify-center gap-2 ${
+              className={`btn-outline-hero cloud-glow-button flex-1 flex items-center justify-center gap-2 ${
                 isSubmitting ? 'animate-wiggle' : ''
-              } ${isSubmitted ? 'border-success/50 text-success' : ''}`}
+              } ${isSubmitted ? 'border-success/50 text-success !bg-transparent !shadow-none' : ''}`}
             >
               {isSubmitted ? (
                 <Check className="w-5 h-5 animate-scale-in" />
