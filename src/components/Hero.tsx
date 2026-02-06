@@ -1,11 +1,14 @@
 import heroBg from '@/assets/hero-bg.png';
-import CloudGlowText from './CloudGlowText';
+import ScrollRevealText from './ScrollRevealText';
+
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: `url(${heroBg})`
-    }} />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/60 to-background" />
@@ -14,7 +17,7 @@ const Hero = () => {
       <div className="relative z-10 container-custom text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-tight mb-8 animate-slide-up">
-            <CloudGlowText>Прецизионные технологии</CloudGlowText>
+            <ScrollRevealText>Прецизионные технологии</ScrollRevealText>
             <br />
             <span className="text-foreground/80">заточки и шлифования</span>
           </h1>
@@ -30,8 +33,8 @@ const Hero = () => {
             <a href="#catalog" className="btn-outline-hero">
               Каталог
             </a>
-            <a href="#contact" className="btn-outline-hero cloud-glow-button">
-              <CloudGlowText>Консультация</CloudGlowText>
+            <a href="#contact" className="btn-outline-hero">
+              Консультация
             </a>
           </div>
         </div>
@@ -39,8 +42,10 @@ const Hero = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        
+        <div className="w-px h-16 bg-gradient-to-b from-foreground/0 via-foreground/30 to-foreground/0" />
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
