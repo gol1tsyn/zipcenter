@@ -37,10 +37,10 @@ const ScrollRevealCloudText = ({ children }: { children: string }) => {
       <span 
         className="absolute inset-0 z-20 pointer-events-none flex items-center justify-center transition-opacity duration-200"
         style={{
-          background: `radial-gradient(ellipse 70px 140px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.5) 40%, transparent 70%)`,
+          backgroundImage: `radial-gradient(ellipse 70px 140px at ${glowPosition.x}px ${glowPosition.y}px, #EB6F05 0%, rgba(235, 111, 5, 0.5) 40%, transparent 70%)`,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
+          color: 'transparent',
           opacity: isHovered ? 1 : 0,
         }}
         aria-hidden="true"

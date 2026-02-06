@@ -175,18 +175,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(
-      ellipse 60px 120px at var(--glow-x) var(--glow-y),
-      hsl(26 94% 47%) 0%,
-      hsl(26 94% 47% / 0.6) 30%,
-      hsl(26 94% 47% / 0.2) 50%,
-      transparent 65%
+    background-image: radial-gradient(
+      ellipse 70px 140px at var(--glow-x) var(--glow-y),
+      #EB6F05 0%,
+      rgba(235, 111, 5, 0.5) 40%,
+      transparent 70%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: var(--glow-opacity);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
   }
 
   /* Simpler cloud glow using box-shadow for buttons */
