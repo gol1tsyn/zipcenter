@@ -75,7 +75,7 @@ const Catalog = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a href="#contact" className="btn-outline-hero inline-block">
+          <a href="#contact" className="btn-orange-glow inline-block">
             Запросить каталог
           </a>
         </div>

@@ -30,7 +30,7 @@ const Hero = () => {
             <a href="#catalog" className="btn-outline-hero">
               Каталог
             </a>
-            <a href="#contact" className="btn-outline-hero">
+            <a href="#contact" className="btn-orange-glow">
               Консультация
             </a>
           </div>

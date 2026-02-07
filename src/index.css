@@ -104,12 +104,21 @@
     box-shadow: var(--glow-hover);
   }
 
-  /* Outline button style */
+  /* Outline button style - default highlight */
   .btn-outline-hero {
-    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase border border-foreground/30 bg-transparent text-foreground transition-all duration-500;
+    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase border border-foreground/30 bg-transparent text-foreground transition-all duration-300;
   }
 
   .btn-outline-hero:hover {
+    @apply border-foreground/60 bg-foreground/5;
+  }
+
+  /* Orange glow button - for CTAs */
+  .btn-orange-glow {
+    @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase border border-foreground/30 bg-transparent text-foreground transition-all duration-500;
+  }
+
+  .btn-orange-glow:hover {
     background-color: hsl(26 94% 47% / 0.15);
     border-color: hsl(26 94% 47% / 0.6);
     box-shadow: 
