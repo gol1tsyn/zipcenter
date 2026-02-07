@@ -1,7 +1,7 @@
 import heroBg from '@/assets/hero-bg.png';
 import ScrollRevealText from './ScrollRevealText';
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 md:pt-0">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: `url(${heroBg})`
