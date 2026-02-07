@@ -46,7 +46,7 @@ const ContactForm = () => {
             <span className="text-foreground/60">через контактную форму</span>
           </h2>
           <p className="text-muted-foreground">
-            или сразу напишите менеджеру в телеграме
+            или сразу напишите менеджеру в&nbsp;телеграме
           </p>
         </div>
         

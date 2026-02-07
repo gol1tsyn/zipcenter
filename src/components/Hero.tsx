@@ -16,14 +16,14 @@ const Hero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-tight mb-8 animate-slide-up">
             <ScrollRevealText>Прецизионные технологии</ScrollRevealText>
             <br />
-            <span className="text-foreground/80">заточки и шлифования</span>
+            <span className="text-foreground/80">заточки и&nbsp;шлифования</span>
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
-            ЗИП-Центр — технологический партнер ведущих немецких машиностроителей: 
-            Vollmer, Göckel и Loroch. Мы внедряем экосистему для обслуживания инструмента, 
-            которая работает десятилетиями: от поставок станков с ЧПУ до прямого снабжения 
-            оригинальными компонентами и глубокой инженерной поддержки по всей России.
+            ЗИП-Центр&nbsp;— технологический партнер ведущих немецких машиностроителей: 
+            Vollmer, Göckel и&nbsp;Loroch. Мы&nbsp;внедряем экосистему для&nbsp;обслуживания инструмента, 
+            которая работает десятилетиями: от&nbsp;поставок станков с&nbsp;ЧПУ до&nbsp;прямого снабжения 
+            оригинальными компонентами и&nbsp;глубокой инженерной поддержки по&nbsp;всей России.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:400ms] opacity-0">
