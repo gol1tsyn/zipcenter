@@ -137,32 +137,16 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
-                <motion.a 
+                <a 
                   key={item.label} 
                   href={item.href} 
-                  className="relative text-base font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 py-2 px-3 rounded-lg group"
+                  className="text-base font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 py-2"
                   style={{
                     textShadow: '0 1px 2px rgba(0,0,0,0.08)',
                   }}
-                  whileHover="hover"
                 >
-                  {/* Frosted hover background */}
-                  <motion.div
-                    className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                    style={{
-                      backdropFilter: 'blur(12px) saturate(150%)',
-                      WebkitBackdropFilter: 'blur(12px) saturate(150%)',
-                      backgroundColor: 'rgba(255,255,255,0.1)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                    }}
-                    initial={{ scale: 0.95, opacity: 0 }}
-                    variants={{
-                      hover: { scale: 1, opacity: 1 }
-                    }}
-                    transition={{ duration: 0.2 }}
-                  />
                   <CloudGlowText>{item.label}</CloudGlowText>
-                </motion.a>
+                </a>
               ))}
             </nav>
 
@@ -185,11 +169,10 @@ const Header = () => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+                  className="text-lg font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                   style={{
                     textShadow: '0 1px 2px rgba(0,0,0,0.08)',
-                    backdropFilter: 'blur(8px)',
                   }}
                 >
                   <CloudGlowText>{item.label}</CloudGlowText>
