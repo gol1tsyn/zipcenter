@@ -94,7 +94,7 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting || isSubmitted}
-              className={`btn-outline-hero cloud-glow-button flex-1 flex items-center justify-center gap-2 ${isSubmitted ? 'border-[hsl(142,76%,46%)] text-[hsl(142,76%,46%)] !bg-transparent !shadow-none' : ''}`}
+              className={`btn-orange-glow flex-1 flex items-center justify-center gap-2 ${isSubmitted ? 'border-[hsl(142,76%,46%)] text-[hsl(142,76%,46%)] !bg-transparent !shadow-none' : ''}`}
             >
               {isSubmitted ? (
                 <Check className="w-5 h-5 animate-scale-in" />
