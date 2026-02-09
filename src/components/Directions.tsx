@@ -49,9 +49,9 @@ const Directions = () => {
             >
               {/* Photo container */}
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+              <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} — ЗИП-Центр`}
                   loading="lazy"
                   className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
                 />
