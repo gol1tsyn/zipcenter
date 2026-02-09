@@ -15,7 +15,7 @@ const About = () => {
   return (
     <section className="section-padding border-y border-border">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div>
             <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
               О компании
