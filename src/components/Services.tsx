@@ -32,11 +32,11 @@ const Services = () => {
               <ScrollRevealText>Сервисное обслуживание</ScrollRevealText>
             </h2>
           </div>
-          <div className="lg:w-1/2 overflow-hidden rounded-lg">
+          <div className="lg:w-1/2 overflow-hidden rounded-lg group/img">
             <img
               src={servicePhoto}
               alt="Инструменты и оборудование для сервисного обслуживания"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover grayscale group-hover/img:grayscale-0 transition-all duration-700"
             />
           </div>
         </div>
