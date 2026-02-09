@@ -3,6 +3,14 @@ import vollmerLogo from '@/assets/vollmer-logo-color.png';
 import gockelLogo from '@/assets/gockel-logo-color.png';
 import lorochLogo from '@/assets/loroch-logo-color.svg';
 
+const logos = (
+  <>
+    <img src={vollmerLogo} alt="Vollmer" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <img src={gockelLogo} alt="Göckel" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <img src={lorochLogo} alt="Loroch" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+  </>
+);
+
 const About = () => {
   return (
     <section className="section-padding border-y border-border">
@@ -18,11 +26,9 @@ const About = () => {
               <span className="text-foreground/60">решения</span>
             </h2>
             
-            {/* Partner Logos */}
-            <div className="flex items-center gap-6 mt-6">
-              <img src={vollmerLogo} alt="Vollmer" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-              <img src={gockelLogo} alt="Göckel" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-              <img src={lorochLogo} alt="Loroch" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+            {/* Partner Logos - desktop */}
+            <div className="hidden lg:flex items-center flex-wrap gap-6 mt-6">
+              {logos}
             </div>
           </div>
           
@@ -38,6 +44,11 @@ const About = () => {
               квалифицированный сервис и&nbsp;обучат ваших специалистов в&nbsp;любой 
               точке страны.
             </p>
+
+            {/* Partner Logos - mobile */}
+            <div className="flex lg:hidden items-center flex-wrap gap-6 mt-8">
+              {logos}
+            </div>
           </div>
         </div>
       </div>
