@@ -7,14 +7,22 @@ const Footer = () => {
             © {new Date().getFullYear()} ЗИП-Центр. Все права защищены.
           </p>
           
-          <a 
-            href="https://шлифовальнаятехника.рф" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="font-mono text-sm text-muted-foreground hover:text-foreground/60 transition-colors duration-300"
-          >
-            шлифовальнаятехника.рф
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a 
+              href="mailto:sales@sipzentr.ru"
+              className="font-mono text-sm text-muted-foreground hover:text-foreground/60 transition-colors duration-300"
+            >
+              sales@sipzentr.ru
+            </a>
+            <a 
+              href="https://шлифовальнаятехника.рф" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-mono text-sm text-muted-foreground hover:text-foreground/60 transition-colors duration-300"
+            >
+              шлифовальнаятехника.рф
+            </a>
+          </div>
         </div>
       </div>
     </footer>
