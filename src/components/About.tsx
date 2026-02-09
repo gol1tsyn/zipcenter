@@ -1,7 +1,7 @@
 import ScrollRevealText from './ScrollRevealText';
-import vollmerLogo from '@/assets/vollmer-logo.svg';
-import gockelLogo from '@/assets/gockel-logo.svg';
-import lorochLogo from '@/assets/loroch-logo.svg';
+import vollmerLogo from '@/assets/vollmer-logo-color.png';
+import gockelLogo from '@/assets/gockel-logo-color.jpg';
+import lorochLogo from '@/assets/loroch-logo-color.svg';
 
 const About = () => {
   return (
@@ -19,10 +19,10 @@ const About = () => {
             </h2>
             
             {/* Partner Logos */}
-            <div className="flex items-center gap-6 mt-6">
-              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
-              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
-              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto opacity-70 hover:opacity-100 transition-opacity [filter:brightness(0)]" />
+            <div className="flex items-center gap-8 mt-6">
+              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
             </div>
           </div>
           
