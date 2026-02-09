@@ -1,35 +1,36 @@
 import ScrollRevealText from './ScrollRevealText';
 
+import imgPodshipniki from '@/assets/catalog-podshipniki.webp';
+import imgNapravlyayushchie from '@/assets/catalog-napravlyayushchie.webp';
+import imgShlifovalnyjKrug from '@/assets/catalog-shlifovalnyj-krug.webp';
+import imgServousilitel from '@/assets/catalog-servousilitel.webp';
+import imgShlifovalnayaPinol from '@/assets/catalog-shlifovalnaya-pinol.webp';
+import imgAlmaznyeKrugi from '@/assets/catalog-almaznye-krugi-said.webp';
+
 const products = [
   {
-    title: 'VOLLMER CHD 270',
-    category: 'Заточка дисковых пил',
-    specs: 'Ø 80–800 мм',
+    title: 'Подшипники',
+    image: imgPodshipniki,
   },
   {
-    title: 'VOLLMER CP 650',
-    category: 'Производство дисковых пил',
-    specs: 'Ø 200–650 мм',
+    title: 'Направляющие',
+    image: imgNapravlyayushchie,
   },
   {
-    title: 'GÖCKEL G50',
-    category: 'Плоскошлифовальный станок',
-    specs: 'до 500 мм',
+    title: 'Шлифовальный круг',
+    image: imgShlifovalnyjKrug,
   },
   {
-    title: 'LOROCH K850',
-    category: 'Заточка ленточных пил',
-    specs: 'Ширина 20–250 мм',
+    title: 'Сервоусилитель ACS\u00A012010 Vollmer',
+    image: imgServousilitel,
   },
   {
-    title: 'VOLLMER QWD 760',
-    category: 'Обработка PCD',
-    specs: 'Эрозионная обработка',
+    title: 'Шлифовальная пиноль',
+    image: imgShlifovalnayaPinol,
   },
   {
-    title: 'GÖCKEL G70',
-    category: 'Плоскошлифовальный станок',
-    specs: 'до 700 мм',
+    title: 'Алмазные круги SAID',
+    image: imgAlmaznyeKrugi,
   },
 ];
 
@@ -42,33 +43,28 @@ const Catalog = () => {
             Каталог
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <ScrollRevealText>Оборудование</ScrollRevealText>
+            <ScrollRevealText>Запасные части</ScrollRevealText>
           </h2>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div
               key={product.title}
               className="card-glow group cursor-pointer overflow-hidden"
             >
-              {/* Placeholder Image Area */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-foreground/5 to-foreground/0 flex items-center justify-center border-b border-border">
-                <span className="font-mono text-6xl text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+              <div className="aspect-[4/3] overflow-hidden border-b border-border">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
               </div>
               
               <div className="p-6">
-                <span className="font-mono text-xs text-muted-foreground tracking-wider uppercase">
-                  {product.category}
-                </span>
-                <h3 className="text-xl font-medium mt-2 mb-3 tracking-tight group-hover:text-foreground/80 transition-colors duration-300">
+                <h3 className="text-xl font-medium tracking-tight group-hover:text-foreground/80 transition-colors duration-300">
                   {product.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
-                  {product.specs}
-                </p>
               </div>
             </div>
           ))}
