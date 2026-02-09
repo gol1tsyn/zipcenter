@@ -1,6 +1,6 @@
 import ScrollRevealText from './ScrollRevealText';
 import vollmerLogo from '@/assets/vollmer-logo-color.png';
-import gockelLogo from '@/assets/gockel-logo-color.jpg';
+import gockelLogo from '@/assets/gockel-logo-color.png';
 import lorochLogo from '@/assets/loroch-logo-color.svg';
 
 const About = () => {
