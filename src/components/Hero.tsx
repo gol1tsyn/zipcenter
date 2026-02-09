@@ -1,4 +1,4 @@
-import heroBg from '@/assets/hero-bg.png';
+import heroBg from '@/assets/hero-bg.webp';
 import ScrollRevealText from './ScrollRevealText';
 const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 md:pt-0">
