@@ -35,7 +35,8 @@ const Services = () => {
           <div className="lg:w-1/2 overflow-hidden rounded-lg group/img">
             <img
               src={servicePhoto}
-              alt="Инструменты и оборудование для сервисного обслуживания"
+              alt="Сервисный инженер выполняет техническое обслуживание заточного станка Vollmer"
+              loading="lazy"
               className="w-full h-auto object-cover grayscale group-hover/img:grayscale-0 transition-all duration-700"
             />
           </div>

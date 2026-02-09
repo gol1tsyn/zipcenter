@@ -5,9 +5,9 @@ import lorochLogo from '@/assets/loroch-logo-color.svg';
 
 const logos = (
   <>
-    <img src={vollmerLogo} alt="Vollmer" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-    <img src={gockelLogo} alt="Göckel" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-    <img src={lorochLogo} alt="Loroch" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <img src={vollmerLogo} alt="Логотип Vollmer — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <img src={gockelLogo} alt="Логотип Göckel — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <img src={lorochLogo} alt="Логотип Loroch — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
   </>
 );
 

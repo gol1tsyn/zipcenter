@@ -57,6 +57,7 @@ const Catalog = () => {
                 <img
                   src={product.image}
                   alt={product.title}
+                  loading="lazy"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
