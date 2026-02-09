@@ -13,29 +13,42 @@ const ContactForm = () => {
     message: '',
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
     
     try {
-      await fetch('https://h.albato.ru/wh/38/1lff98t/FVM3PD1_wwOq4DAvJnxR0Dr2AmNvNSX2kAiT4zHAzWQ/', {
+      const response = await fetch('https://h.albato.ru/wh/38/1lff98t/FVM3PD1_wwOq4DAvJnxR0Dr2AmNvNSX2kAiT4zHAzWQ/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+        }),
       });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      setIsSubmitted(true);
+      setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setSuccessMessage('');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }, 4000);
     } catch {
-      // silently handle network errors
+      setErrorMessage('Не удалось отправить. Попробуйте ещё раз или напишите в Телеграм.');
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
-    
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setSuccessMessage('');
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 4000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -100,7 +113,10 @@ const ContactForm = () => {
           />
 
           {successMessage && (
-            <p className="text-[hsl(142,76%,46%)] text-center text-sm">{successMessage}</p>
+            <p className="text-[hsl(142,76%,46%)] text-center text-sm" role="status">{successMessage}</p>
+          )}
+          {errorMessage && (
+            <p className="text-destructive text-center text-sm" role="alert">{errorMessage}</p>
           )}
           
           <div className="flex flex-col sm:flex-row gap-4">

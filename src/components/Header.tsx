@@ -154,6 +154,8 @@ const Header = () => {
             <button
               className="md:hidden p-2 relative"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+              aria-expanded={isMobileMenuOpen}
               style={{
                 textShadow: '0 1px 2px rgba(0,0,0,0.1)',
               }}

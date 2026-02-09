@@ -56,7 +56,7 @@ const Catalog = () => {
               <div className="aspect-[4/3] overflow-hidden border-b border-border">
                 <img
                   src={product.image}
-                  alt={product.title}
+                  alt={`${product.title} — запасная часть для заточного оборудования`}
                   loading="lazy"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
