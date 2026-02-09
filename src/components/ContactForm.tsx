@@ -5,6 +5,7 @@ import ScrollRevealText from './ScrollRevealText';
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,17 +17,25 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      await fetch('https://h.albato.ru/wh/38/1lff98t/FVM3PD1_wwOq4DAvJnxR0Dr2AmNvNSX2kAiT4zHAzWQ/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      // silently handle network errors
+    }
     
     setIsSubmitting(false);
     setIsSubmitted(true);
+    setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
     
-    // Reset after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
+      setSuccessMessage('');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    }, 3000);
+    }, 4000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -89,6 +98,10 @@ const ContactForm = () => {
             rows={4}
             className="input-dark resize-none"
           />
+
+          {successMessage && (
+            <p className="text-[hsl(142,76%,46%)] text-center text-sm">{successMessage}</p>
+          )}
           
           <div className="flex flex-col sm:flex-row gap-4">
             <button
