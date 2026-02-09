@@ -1,4 +1,5 @@
 import ScrollRevealText from './ScrollRevealText';
+import servicePhoto from '@/assets/service-photo.webp';
 
 const services = [
   {
@@ -22,13 +23,22 @@ const Services = () => {
   return (
     <section id="services" className="section-padding border-y border-border">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
-            Сервис
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <ScrollRevealText>Сервисное обслуживание</ScrollRevealText>
-          </h2>
+        <div className="mb-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div className="lg:w-1/2 text-center lg:text-left">
+            <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
+              Сервис
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
+              <ScrollRevealText>Сервисное обслуживание</ScrollRevealText>
+            </h2>
+          </div>
+          <div className="lg:w-1/2 overflow-hidden rounded-lg">
+            <img
+              src={servicePhoto}
+              alt="Инструменты и оборудование для сервисного обслуживания"
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
