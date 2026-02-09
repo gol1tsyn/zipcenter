@@ -19,10 +19,10 @@ const About = () => {
             </h2>
             
             {/* Partner Logos */}
-            <div className="flex items-center gap-8 mt-6">
-              <img src={vollmerLogo} alt="Vollmer" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-              <img src={gockelLogo} alt="Göckel" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-              <img src={lorochLogo} alt="Loroch" className="h-10 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+            <div className="flex items-center gap-6 mt-6">
+              <img src={vollmerLogo} alt="Vollmer" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src={gockelLogo} alt="Göckel" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src={lorochLogo} alt="Loroch" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
             </div>
           </div>
           
