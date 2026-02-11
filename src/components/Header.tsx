@@ -4,8 +4,8 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import CloudGlowText from './CloudGlowText';
 
 const navItems = [
-  { label: 'Оборудование', href: '#directions' },
-  { label: 'Запасные части', href: '#directions' },
+  { label: 'Оборудование', href: '#catalog-equipment' },
+  { label: 'Запасные части', href: '#catalog-spare-parts' },
   { label: 'Сервис', href: '#services' },
   { label: 'Контакты', href: '#contact' },
 ];
