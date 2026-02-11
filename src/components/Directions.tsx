@@ -9,21 +9,25 @@ const directions = [
     title: 'Оборудование',
     description: 'Технологические правильные станки для\u00A0заточки и\u00A0производства дисковых пил, плоских ножей и\u00A0PCD-инструмента.',
     image: equipmentImg,
+    href: '#catalog-equipment',
   },
   {
     title: 'Запасные части',
     description: 'Прямой доступ к\u00A0оригинальным узлам и\u00A0компонентам Vollmer, Göckel, Loroch. Гарантия полной совместимости и\u00A0ресурса.',
     image: sparePartsImg,
+    href: '#catalog-spare-parts',
   },
   {
     title: 'Расходные материалы',
     description: 'Профессиональный подбор шлифовальных кругов, электродов и\u00A0концентратов СОЖ для\u00A0оптимизации процессов шлифования.',
     image: consumablesImg,
+    href: '#catalog-spare-parts',
   },
   {
     title: 'Сервисный инжиниринг',
     description: 'Комплексное сопровождение: от\u00A0пусконаладки и\u00A0обучения персонала до\u00A0аудита технологических процессов.',
     image: serviceImg,
+    href: '#services',
   },
 ];
 
@@ -42,9 +46,10 @@ const Directions = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {directions.map((item, index) => (
-            <div
+            <a
               key={item.title}
-              className="card-glow group overflow-hidden"
+              href={item.href}
+              className="card-glow group overflow-hidden block"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Photo container */}
@@ -67,7 +72,7 @@ const Directions = () => {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

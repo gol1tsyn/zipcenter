@@ -58,7 +58,7 @@ const Catalog = () => {
     <section id="catalog" className="section-padding">
       <div className="container-custom">
         {/* Запасные части */}
-        <div className="text-center mb-16">
+        <div id="catalog-spare-parts" className="text-center mb-16 scroll-mt-24">
           <span className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4 block">
             Каталог
           </span>
@@ -74,7 +74,7 @@ const Catalog = () => {
         </div>
 
         {/* Оборудование */}
-        <div className="text-center mt-24 mb-16">
+        <div id="catalog-equipment" className="text-center mt-24 mb-16 scroll-mt-24">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
             <ScrollRevealText>Оборудование</ScrollRevealText>
           </h2>
