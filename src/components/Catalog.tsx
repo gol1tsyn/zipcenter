@@ -43,7 +43,7 @@ const Catalog = () => {
             Каталог
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <ScrollRevealText>Запасные части</ScrollRevealText>
+            <ScrollRevealText>Запасные части и&nbsp;расходные материалы</ScrollRevealText>
           </h2>
         </div>
         

@@ -1,7 +1,7 @@
 import ScrollRevealText from './ScrollRevealText';
 import equipmentImg from '@/assets/equipment.jpg';
-import sparePartsImg from '@/assets/consumables.jpg';
-import consumablesImg from '@/assets/spare-parts.jpg';
+import sparePartsImg from '@/assets/spare-parts.jpg';
+import consumablesImg from '@/assets/consumables.jpg';
 import serviceImg from '@/assets/service.jpg';
 
 const directions = [
