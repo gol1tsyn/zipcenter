@@ -1,4 +1,5 @@
 import ScrollRevealText from './ScrollRevealText';
+import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 
 import imgPodshipniki from '@/assets/catalog-podshipniki.webp';
 import imgNapravlyayushchie from '@/assets/catalog-napravlyayushchie.webp';
@@ -35,23 +36,31 @@ interface ProductCardProps {
   altSuffix: string;
 }
 
-const ProductCard = ({ title, image, altSuffix }: ProductCardProps) => (
-  <div className="card-glow group cursor-pointer overflow-hidden">
-    <div className="aspect-[4/3] overflow-hidden border-b border-border">
-      <img
-        src={image}
-        alt={`${title} — ${altSuffix}`}
-        loading="lazy"
-        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-      />
+const ProductCard = ({ title, image, altSuffix }: ProductCardProps) => {
+  const { ref, isVisible, isMobile } = useScrollRevealRef();
+
+  return (
+    <div ref={ref} className="card-glow group cursor-pointer overflow-hidden">
+      <div className="aspect-[4/3] overflow-hidden border-b border-border">
+        <img
+          src={image}
+          alt={`${title} — ${altSuffix}`}
+          loading="lazy"
+          className={`w-full h-full object-cover transition-all duration-700 ${
+            isMobile
+              ? (isVisible ? 'grayscale-0' : 'grayscale')
+              : 'grayscale group-hover:grayscale-0'
+          }`}
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-medium tracking-tight group-hover:text-foreground/80 transition-colors duration-300">
+          {title}
+        </h3>
+      </div>
     </div>
-    <div className="p-6">
-      <h3 className="text-xl font-medium tracking-tight group-hover:text-foreground/80 transition-colors duration-300">
-        {title}
-      </h3>
-    </div>
-  </div>
-);
+  );
+};
 
 const Catalog = () => {
   return (

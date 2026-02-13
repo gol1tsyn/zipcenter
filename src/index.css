@@ -104,6 +104,21 @@
     box-shadow: var(--glow-hover);
   }
 
+  @media (hover: none) {
+    .card-glow {
+      @apply border-foreground/20;
+      box-shadow: var(--glow-hover);
+    }
+
+    .btn-orange-glow {
+      background-color: hsl(26 94% 47% / 0.15);
+      border-color: hsl(26 94% 47% / 0.6);
+      box-shadow: 
+        0 0 20px hsl(26 94% 47% / 0.2),
+        0 0 40px hsl(26 94% 47% / 0.1);
+    }
+  }
+
   /* Outline button style - default highlight */
   .btn-outline-hero {
     @apply relative px-8 py-4 text-sm font-medium tracking-wide uppercase border border-foreground/30 bg-transparent text-foreground transition-all duration-300;
