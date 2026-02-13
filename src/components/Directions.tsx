@@ -1,4 +1,5 @@
 import ScrollRevealText from './ScrollRevealText';
+import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 import equipmentImg from '@/assets/equipment.jpg';
 import sparePartsImg from '@/assets/spare-parts.jpg';
 import consumablesImg from '@/assets/consumables.jpg';
@@ -31,6 +32,41 @@ const directions = [
   },
 ];
 
+const DirectionCard = ({ item, index }: { item: typeof directions[number]; index: number }) => {
+  const { ref, isVisible, isMobile } = useScrollRevealRef<HTMLAnchorElement>();
+
+  return (
+    <a
+      ref={ref}
+      key={item.title}
+      href={item.href}
+      className="card-glow group overflow-hidden block"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <div className="aspect-[4/3] overflow-hidden">
+        <img
+          src={item.image}
+          alt={`${item.title} — ЗИП-Центр`}
+          loading="lazy"
+          className={`w-full h-full object-cover transition-all duration-500 ${
+            isMobile
+              ? (isVisible ? 'grayscale-0 scale-105' : 'grayscale scale-100')
+              : 'grayscale group-hover:grayscale-0 group-hover:scale-105'
+          }`}
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-medium mb-3 tracking-tight">
+          {item.title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed text-sm">
+          {item.description}
+        </p>
+      </div>
+    </a>
+  );
+};
+
 const Directions = () => {
   return (
     <section id="directions" className="section-padding">
@@ -46,33 +82,7 @@ const Directions = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {directions.map((item, index) => (
-            <a
-              key={item.title}
-              href={item.href}
-              className="card-glow group overflow-hidden block"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Photo container */}
-              <div className="aspect-[4/3] overflow-hidden">
-              <img
-                  src={item.image}
-                  alt={`${item.title} — ЗИП-Центр`}
-                  loading="lazy"
-                  className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-                />
-              </div>
-              
-              {/* Text content */}
-              <div className="p-6">
-                <h3 className="text-xl font-medium mb-3 tracking-tight">
-                  {item.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {item.description}
-                </p>
-              </div>
-            </a>
+            <DirectionCard key={item.title} item={item} index={index} />
           ))}
         </div>
       </div>

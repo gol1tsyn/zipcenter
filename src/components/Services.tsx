@@ -1,4 +1,5 @@
 import ScrollRevealText from './ScrollRevealText';
+import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 import servicePhoto from '@/assets/service-photo.webp';
 
 const services = [
@@ -20,6 +21,8 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, isVisible, isMobile } = useScrollRevealRef();
+
   return (
     <section id="services" className="section-padding border-y border-border">
       <div className="container-custom">
@@ -32,12 +35,16 @@ const Services = () => {
               <ScrollRevealText>Сервисное обслуживание</ScrollRevealText>
             </h2>
           </div>
-          <div className="lg:w-1/2 overflow-hidden rounded-lg group/img">
+          <div ref={ref} className="lg:w-1/2 overflow-hidden rounded-lg group/img">
             <img
               src={servicePhoto}
               alt="Сервисный инженер выполняет техническое обслуживание заточного станка Vollmer"
               loading="lazy"
-              className="w-full h-auto object-cover grayscale group-hover/img:grayscale-0 transition-all duration-700"
+              className={`w-full h-auto object-cover transition-all duration-700 ${
+                isMobile
+                  ? (isVisible ? 'grayscale-0' : 'grayscale')
+                  : 'grayscale group-hover/img:grayscale-0'
+              }`}
             />
           </div>
         </div>

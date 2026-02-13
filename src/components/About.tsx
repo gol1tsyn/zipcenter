@@ -1,13 +1,31 @@
 import ScrollRevealText from './ScrollRevealText';
+import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 import vollmerLogo from '@/assets/vollmer-logo-color.png';
 import gockelLogo from '@/assets/gockel-logo-color.png';
 import lorochLogo from '@/assets/loroch-logo-color.svg';
 
+const LogoImage = ({ src, alt }: { src: string; alt: string }) => {
+  const { ref, isVisible, isMobile } = useScrollRevealRef<HTMLImageElement>();
+  return (
+    <img
+      ref={ref}
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className={`h-8 w-auto transition-all duration-700 ${
+        isMobile
+          ? (isVisible ? 'grayscale-0' : 'grayscale')
+          : 'grayscale hover:grayscale-0'
+      }`}
+    />
+  );
+};
+
 const logos = (
   <>
-    <img src={vollmerLogo} alt="Логотип Vollmer — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-    <img src={gockelLogo} alt="Логотип Göckel — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
-    <img src={lorochLogo} alt="Логотип Loroch — партнёр ЗИП-Центр" loading="lazy" className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-700" />
+    <LogoImage src={vollmerLogo} alt="Логотип Vollmer — партнёр ЗИП-Центр" />
+    <LogoImage src={gockelLogo} alt="Логотип Göckel — партнёр ЗИП-Центр" />
+    <LogoImage src={lorochLogo} alt="Логотип Loroch — партнёр ЗИП-Центр" />
   </>
 );
 
