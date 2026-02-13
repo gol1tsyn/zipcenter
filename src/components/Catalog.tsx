@@ -76,7 +76,7 @@ const Catalog = () => {
         {/* Оборудование */}
         <div id="catalog-equipment" className="text-center mt-24 mb-16 scroll-mt-24">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight">
-            <ScrollRevealText>Оборудование</ScrollRevealText>
+            <ScrollRevealText>Шлифовальная техника</ScrollRevealText>
           </h2>
         </div>
 

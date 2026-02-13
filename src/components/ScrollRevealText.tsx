@@ -17,7 +17,7 @@ const ScrollRevealText = ({ children, className = '' }: ScrollRevealTextProps) =
         color: '#EB6F05', 
         textShadow: '0 0 40px rgba(235, 111, 5, 0.5)',
       }}
-      viewport={{ once: false, amount: 0.8, margin: '-100px' }}
+      viewport={{ once: false, amount: 0.3 }}
       transition={{ 
         duration: 3, 
         ease: [0.22, 1, 0.36, 1],

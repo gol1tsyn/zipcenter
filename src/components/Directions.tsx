@@ -6,7 +6,7 @@ import serviceImg from '@/assets/service.jpg';
 
 const directions = [
   {
-    title: 'Оборудование',
+    title: 'Шлифовальная техника',
     description: 'Технологические правильные станки для\u00A0заточки и\u00A0производства дисковых пил, плоских ножей и\u00A0PCD-инструмента.',
     image: equipmentImg,
     href: '#catalog-equipment',
