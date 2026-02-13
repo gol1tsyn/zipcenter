@@ -21,8 +21,8 @@ const Hero = () => {
           
           <p className="text-lg md:text-xl text-foreground/80 max-w-3xl mx-auto mb-12 leading-relaxed animate-slide-up [animation-delay:200ms] opacity-0">
             ЗИП-Центр&nbsp;— поставщик оборудования и&nbsp;запасных частей мировых лидеров 
-            в&nbsp;области машиностроения VOLLMER, Loroch, Gerling, Reform, Göckel 
-            и&nbsp;многих других европейских и&nbsp;китайских производителей. Мы&nbsp;внедряем экосистему для&nbsp;обслуживания инструмента, 
+            в&nbsp;области машиностроения Vollmer, Loroch, Gerling, Reform, Göckel 
+            и&nbsp;других европейских и&nbsp;китайских производителей. Мы&nbsp;внедряем экосистему для&nbsp;обслуживания инструмента, 
             которая работает десятилетиями: от&nbsp;поставок станков с&nbsp;ЧПУ до&nbsp;прямого снабжения 
             оригинальными компонентами и&nbsp;глубокой инженерной поддержки по&nbsp;всей России.
           </p>
