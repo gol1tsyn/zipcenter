@@ -29,7 +29,7 @@ const Header = () => {
       style={{
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        backgroundColor: 'rgba(242, 242, 242, 0.55)',
+        backgroundColor: 'rgba(242, 242, 242, 0.35)',
       }}
     >
       {/* Bottom border */}
