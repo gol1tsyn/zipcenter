@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
 import CloudGlowText from './CloudGlowText';
 
 const navItems = [
@@ -14,11 +14,21 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const glassRef = useRef<HTMLDivElement>(null);
   
   // Scroll-based blur oscillation
   const { scrollY } = useScroll();
   const rawBlur = useTransform(scrollY, [0, 100, 200, 300, 400], [20, 28, 22, 30, 25]);
   const blurValue = useSpring(rawBlur, { stiffness: 100, damping: 30 });
+
+  // Update backdrop-filter via ref for Chrome/Firefox compatibility
+  useMotionValueEvent(blurValue, "change", (v) => {
+    if (glassRef.current) {
+      const filter = `blur(${v}px) saturate(200%) contrast(110%)`;
+      glassRef.current.style.backdropFilter = filter;
+      (glassRef.current.style as any).webkitBackdropFilter = filter;
+    }
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,12 +75,13 @@ const Header = () => {
         {/* Refractive Liquid Glass Background */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Primary Liquid Glass Layer */}
-          <motion.div 
+          <div 
+            ref={glassRef}
             className="absolute inset-0"
             style={{
-              backdropFilter: useTransform(blurValue, (v) => `blur(${v}px) saturate(200%) contrast(110%)`),
-              WebkitBackdropFilter: useTransform(blurValue, (v) => `blur(${v}px) saturate(200%) contrast(110%)`),
-              backgroundColor: 'rgba(255, 255, 255, 0.06)',
+              backdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
+              backgroundColor: 'rgba(255, 255, 255, 0.12)',
             }}
           />
           
