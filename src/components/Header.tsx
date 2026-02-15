@@ -49,7 +49,7 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Основная навигация">
             {navItems.map((item) => (
               <a 
                 key={item.label} 
@@ -74,7 +74,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden flex flex-col gap-3 py-4">
+          <nav className="md:hidden flex flex-col gap-3 py-4" aria-label="Мобильная навигация">
             {navItems.map((item) => (
               <a
                 key={item.label}
