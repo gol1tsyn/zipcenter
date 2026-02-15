@@ -1,33 +1,49 @@
 
-# Scroll-активация hover-эффектов на мобильных
 
-## Что сейчас
-На сайте много элементов с hover-эффектами (снятие ч/б фильтра, подсветка карточек, цветные логотипы), которые на мобильных устройствах не работают, потому что там нет курсора.
+## Исправление эффекта прозрачности шапки в Chrome и Firefox
 
-## Что сделаем
-На мобильных устройствах (ширина < 768px) все hover-эффекты будут срабатывать автоматически при прокрутке -- когда элемент появляется на экране, он "загорается" (как заголовки с оранжевой подсветкой). На десктопе все остается как есть -- по наведению курсора.
+### Проблема
+Свойство `backdropFilter` задаётся через `useTransform` из framer-motion, который возвращает `MotionValue<string>`. Safari умеет применять такие значения, а Chrome и Firefox -- нет. В итоге в этих браузерах `backdrop-filter` просто игнорируется и шапка остаётся полностью прозрачной.
 
-## Затронутые элементы
+### Решение
+Отказаться от анимации `backdrop-filter` через MotionValue. Вместо этого:
 
-| Элемент | Эффект |
-|---|---|
-| Карточки каталога (запчасти + техника) | Снятие ч/б фильтра с фото |
-| Карточки направлений | Снятие ч/б фильтра + легкий зум |
-| Фото сервисного инженера | Снятие ч/б фильтра |
-| Логотипы партнеров (Vollmer, Gockel, Loroch) | Снятие ч/б фильтра |
+1. **Применить `backdrop-filter` через обычный CSS-стиль** (статическая строка), что гарантирует работу во всех браузерах
+2. **Сохранить динамическую осцилляцию blur** через `useMotionValueEvent` -- подписаться на изменения `blurValue` и обновлять inline-стиль элемента напрямую через `ref`
+3. **Немного увеличить `backgroundColor`** с `rgba(255,255,255,0.06)` до `rgba(255,255,255,0.12)`, чтобы эффект стекла был заметнее на светлом фоне
 
-## Техническая реализация
+### Технические детали
 
-1. **Новый хук `useScrollRevealRef`** -- использует Intersection Observer, возвращает ref и флаг `isVisible`. Срабатывает только на мобильных (проверка через `useIsMobile`).
+**Файл: `src/components/Header.tsx`**
 
-2. **Обновление компонентов** -- в каждом из перечисленных компонентов: на мобильных убираем `grayscale` класс, когда элемент виден на экране; на десктопе оставляем стандартный `group-hover:grayscale-0`.
+- Добавить `useRef` для div-элемента с backdrop-filter
+- Заменить `useTransform` для `backdropFilter` на `useMotionValueEvent`, который будет напрямую обновлять `style.backdropFilter` и `style.webkitBackdropFilter` на DOM-элементе через ref
+- Убрать `motion.div` для glass-слоя -- заменить на обычный `div` с ref
+- Установить начальное значение `backdrop-filter` как обычную CSS-строку
 
-3. **CSS-подход для карточек** -- для `.card-glow` добавим медиа-запрос `@media (hover: none)`, чтобы border-подсветка тоже работала без наведения.
+```text
+// Было (не работает в Chrome/Firefox):
+<motion.div style={{
+  backdropFilter: useTransform(blurValue, (v) => `blur(${v}px) ...`),
+}} />
 
-### Файлы для изменения
-- `src/hooks/useScrollReveal.ts` -- новый хук
-- `src/components/Catalog.tsx` -- ProductCard с scroll-анимацией
-- `src/components/Directions.tsx` -- карточки направлений
-- `src/components/Services.tsx` -- фото инженера
-- `src/components/About.tsx` -- логотипы партнеров
-- `src/index.css` -- медиа-запрос для card-glow на touch-устройствах
+// Станет (работает везде):
+const glassRef = useRef<HTMLDivElement>(null);
+
+useMotionValueEvent(blurValue, "change", (v) => {
+  if (glassRef.current) {
+    const filter = `blur(${v}px) saturate(200%) contrast(110%)`;
+    glassRef.current.style.backdropFilter = filter;
+    glassRef.current.style.webkitBackdropFilter = filter;
+  }
+});
+
+<div ref={glassRef} style={{
+  backdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
+  WebkitBackdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
+  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+}} />
+```
+
+Это единственное изменение -- остальные слои шапки (displacement filter, specular highlights, noise texture, borders) остаются без изменений.
+
