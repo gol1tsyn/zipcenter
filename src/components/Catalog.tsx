@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import ScrollRevealText from './ScrollRevealText';
 import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 
@@ -30,6 +32,11 @@ const equipment = [
   { title: 'Плоскошлифовальные станки', image: imgSurfaceGrinder },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 interface ProductCardProps {
   title: string;
   image: string;
@@ -40,7 +47,12 @@ const ProductCard = ({ title, image, altSuffix }: ProductCardProps) => {
   const { ref, isVisible, isMobile } = useScrollRevealRef();
 
   return (
-    <div ref={ref} className="card-glow group cursor-pointer overflow-hidden">
+    <motion.div
+      ref={ref}
+      className="card-glow group cursor-pointer overflow-hidden"
+      variants={cardVariants}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <div className="aspect-[4/3] overflow-hidden border-b border-border">
         <img
           src={image}
@@ -58,7 +70,26 @@ const ProductCard = ({ title, image, altSuffix }: ProductCardProps) => {
           {title}
         </h3>
       </div>
-    </div>
+    </motion.div>
+  );
+};
+
+const StaggerGrid = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={{
+        visible: { transition: { staggerChildren: 0.1 } },
+      }}
+    >
+      {children}
+    </motion.div>
   );
 };
 
@@ -76,11 +107,11 @@ const Catalog = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerGrid className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {spareParts.map((product) => (
             <ProductCard key={product.title} title={product.title} image={product.image} altSuffix="запасная часть для заточного оборудования" />
           ))}
-        </div>
+        </StaggerGrid>
 
         {/* Оборудование */}
         <div id="catalog-equipment" className="text-center mt-24 mb-16 scroll-mt-24">
@@ -89,16 +120,16 @@ const Catalog = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerGrid className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {equipment.map((product) => (
             <ProductCard key={product.title} title={product.title} image={product.image} altSuffix="заточное оборудование" />
           ))}
-        </div>
+        </StaggerGrid>
 
         <div className="text-center mt-12">
-          <a href="#contact" className="btn-orange-glow inline-block">
+          <motion.a href="#contact" className="btn-orange-glow inline-block" whileTap={{ scale: 0.97 }}>
             Запросить каталог
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>
@@ -106,3 +137,4 @@ const Catalog = () => {
 };
 
 export default Catalog;
+

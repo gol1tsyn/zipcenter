@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import ScrollRevealText from './ScrollRevealText';
 
@@ -116,10 +117,11 @@ const ContactForm = () => {
             <p className="text-destructive text-center text-sm" role="alert">{errorMessage}</p>
           )}
           
-          <button
+          <motion.button
             type="submit"
             disabled={isSubmitting || isSubmitted}
             className={`btn-orange-glow w-full flex items-center justify-center gap-2 ${isSubmitted ? 'border-[hsl(142,76%,46%)] text-[hsl(142,76%,46%)] !bg-transparent !shadow-none' : ''}`}
+            whileTap={{ scale: 0.97 }}
           >
             {isSubmitted ? (
               <Check className="w-5 h-5 animate-scale-in" />
@@ -128,7 +130,7 @@ const ContactForm = () => {
             ) : (
               <span>Отправить</span>
             )}
-          </button>
+          </motion.button>
         </form>
       </div>
     </section>
