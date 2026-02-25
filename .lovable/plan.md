@@ -1,49 +1,38 @@
 
 
-## Исправление эффекта прозрачности шапки в Chrome и Firefox
+# Анимации и микровзаимодействия
 
-### Проблема
-Свойство `backdropFilter` задаётся через `useTransform` из framer-motion, который возвращает `MotionValue<string>`. Safari умеет применять такие значения, а Chrome и Firefox -- нет. В итоге в этих браузерах `backdrop-filter` просто игнорируется и шапка остаётся полностью прозрачной.
+Обновленный план без счётчиков и скролл-индикатора.
 
-### Решение
-Отказаться от анимации `backdrop-filter` через MotionValue. Вместо этого:
+## Что будет сделано
 
-1. **Применить `backdrop-filter` через обычный CSS-стиль** (статическая строка), что гарантирует работу во всех браузерах
-2. **Сохранить динамическую осцилляцию blur** через `useMotionValueEvent` -- подписаться на изменения `blurValue` и обновлять inline-стиль элемента напрямую через `ref`
-3. **Немного увеличить `backgroundColor`** с `rgba(255,255,255,0.06)` до `rgba(255,255,255,0.12)`, чтобы эффект стекла был заметнее на светлом фоне
+### 1. Параллакс-эффект в Hero
+Фоновое изображение будет плавно сдвигаться при скролле, создавая ощущение глубины. При прокрутке страницы вниз фон двигается медленнее, чем контент.
 
-### Технические детали
+### 2. Stagger-появление карточек
+Карточки в секциях «Направления» и «Каталог» будут появляться последовательно с задержкой 100ms друг за другом при входе в зону видимости -- эффект «волны» снизу вверх.
 
-**Файл: `src/components/Header.tsx`**
+### 3. Улучшенные hover-эффекты карточек
+Плавный подъём карточки на 4px при наведении с мягкой тенью вместо текущего border-glow.
 
-- Добавить `useRef` для div-элемента с backdrop-filter
-- Заменить `useTransform` для `backdropFilter` на `useMotionValueEvent`, который будет напрямую обновлять `style.backdropFilter` и `style.webkitBackdropFilter` на DOM-элементе через ref
-- Убрать `motion.div` для glass-слоя -- заменить на обычный `div` с ref
-- Установить начальное значение `backdrop-filter` как обычную CSS-строку
+### 4. Микровзаимодействия кнопок
+- Тактильный эффект нажатия `scale(0.97)` на кнопках «Каталог» и «Консультация»
+- Плавная анимация кнопки «Отправить» при отправке формы
 
-```text
-// Было (не работает в Chrome/Firefox):
-<motion.div style={{
-  backdropFilter: useTransform(blurValue, (v) => `blur(${v}px) ...`),
-}} />
+---
 
-// Станет (работает везде):
-const glassRef = useRef<HTMLDivElement>(null);
+## Технические детали
 
-useMotionValueEvent(blurValue, "change", (v) => {
-  if (glassRef.current) {
-    const filter = `blur(${v}px) saturate(200%) contrast(110%)`;
-    glassRef.current.style.backdropFilter = filter;
-    glassRef.current.style.webkitBackdropFilter = filter;
-  }
-});
+### Файлы для изменения
 
-<div ref={glassRef} style={{
-  backdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
-  WebkitBackdropFilter: 'blur(20px) saturate(200%) contrast(110%)',
-  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-}} />
-```
+| Файл | Что меняется |
+|---|---|
+| `src/components/Hero.tsx` | Добавление параллакса через Framer Motion `useScroll` + `useTransform` |
+| `src/components/Directions.tsx` | Stagger-анимация карточек через `motion.div` + `useInView` |
+| `src/components/Catalog.tsx` | Stagger-анимация карточек через `motion.div` + `useInView` |
+| `src/components/ContactForm.tsx` | Анимация `whileTap` на кнопке отправки |
+| `src/index.css` | Обновление `.card-glow` hover: `translateY(-4px)` + мягкая тень; добавление `whileTap` стилей для кнопок |
 
-Это единственное изменение -- остальные слои шапки (displacement filter, specular highlights, noise texture, borders) остаются без изменений.
-
+### Используемые инструменты
+- **Framer Motion** (уже установлен): `useScroll`, `useTransform`, `motion.div`, `useInView`
+- Новых зависимостей не требуется
