@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import ScrollRevealText from './ScrollRevealText';
 import { useScrollRevealRef } from '@/hooks/useScrollReveal';
 import equipmentImg from '@/assets/equipment.jpg';
@@ -36,12 +38,16 @@ const DirectionCard = ({ item, index }: { item: typeof directions[number]; index
   const { ref, isVisible, isMobile } = useScrollRevealRef<HTMLAnchorElement>();
 
   return (
-    <a
+    <motion.a
       ref={ref}
       key={item.title}
       href={item.href}
       className="card-glow group overflow-hidden block"
-      style={{ animationDelay: `${index * 100}ms` }}
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 },
+      }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="aspect-[4/3] overflow-hidden">
         <img
@@ -63,11 +69,14 @@ const DirectionCard = ({ item, index }: { item: typeof directions[number]; index
           {item.description}
         </p>
       </div>
-    </a>
+    </motion.a>
   );
 };
 
 const Directions = () => {
+  const gridRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(gridRef, { once: true, margin: '-80px' });
+
   return (
     <section id="directions" className="section-padding">
       <div className="container-custom">
@@ -79,12 +88,20 @@ const Directions = () => {
             <ScrollRevealText>Что мы предлагаем</ScrollRevealText>
           </h2>
         </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <motion.div
+          ref={gridRef}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
           {directions.map((item, index) => (
             <DirectionCard key={item.title} item={item} index={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
