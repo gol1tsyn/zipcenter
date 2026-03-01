@@ -96,50 +96,77 @@
   /* Card with border glow */
   .card-glow {
     @apply relative bg-card transition-all duration-500;
-    border: 2px solid transparent;
-    background:
-      var(--gradient-card) padding-box,
-      linear-gradient(
-        315deg,
-        hsl(var(--foreground) / 0.18) 0%,
-        hsl(var(--foreground) / 0.1) 36%,
-        hsl(var(--foreground) / 0.1) 64%,
-        hsl(var(--foreground) / 0.16) 100%
-      ) border-box;
+    border: 2px solid hsl(var(--foreground) / 0.1);
+    overflow: hidden;
   }
 
-  .card-glow::before,
+  /* Top-right: border shine along the edges */
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    background:
+      linear-gradient(to left, hsl(0 0% 100% / 0.9), transparent 80%) top / 100% 2px no-repeat,
+      linear-gradient(to bottom, hsl(0 0% 100% / 0.8), transparent 80%) right / 2px 100% no-repeat;
+    transition: opacity 0.6s ease, width 0.6s ease, height 0.6s ease;
+  }
+
+  /* Bottom-left: inner gradient glow */
   .card-glow::after {
-    content: none;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 140px;
+    height: 140px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    background: radial-gradient(
+      ellipse at bottom left,
+      hsl(0 0% 100% / 0.45) 0%,
+      hsl(0 0% 100% / 0.15) 40%,
+      transparent 70%
+    );
+    transition: opacity 0.6s ease, width 0.6s ease, height 0.6s ease;
   }
 
   .card-glow:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-    background:
-      var(--gradient-card) padding-box,
-      linear-gradient(
-        315deg,
-        hsl(0 0% 100% / 0.96) 0%,
-        hsl(var(--foreground) / 0.16) 28%,
-        hsl(var(--foreground) / 0.14) 50%,
-        hsl(var(--foreground) / 0.16) 72%,
-        hsl(0 0% 100% / 0.86) 100%
-      ) border-box;
+    border-color: hsl(var(--foreground) / 0.18);
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+    width: 180px;
+    height: 180px;
+  }
+
+  .card-glow:hover::after {
+    opacity: 1;
+    width: 200px;
+    height: 200px;
   }
 
   @media (hover: none) {
     .card-glow {
+      border-color: hsl(var(--foreground) / 0.18);
       box-shadow: var(--glow-hover);
-      background:
-        var(--gradient-card) padding-box,
-        linear-gradient(
-          315deg,
-          hsl(0 0% 100% / 0.52) 0%,
-          hsl(var(--foreground) / 0.16) 30%,
-          hsl(var(--foreground) / 0.14) 70%,
-          hsl(0 0% 100% / 0.42) 100%
-        ) border-box;
+    }
+
+    .card-glow::before {
+      opacity: 0.7;
+    }
+
+    .card-glow::after {
+      opacity: 0.5;
     }
 
     .btn-orange-glow {
