@@ -104,11 +104,12 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(225deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(225deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 30%, transparent 60%);
     pointer-events: none;
     z-index: 1;
+    opacity: 0.4;
     transition: opacity 0.5s, width 0.5s, height 0.5s;
   }
 
@@ -117,11 +118,12 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 30%, transparent 60%);
     pointer-events: none;
     z-index: 1;
+    opacity: 0.3;
     transition: opacity 0.5s, width 0.5s, height 0.5s;
   }
 
@@ -133,12 +135,12 @@
 
   .card-glow:hover::before {
     opacity: 1;
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
   }
 
   .card-glow:hover::after {
-    opacity: 1;
+    opacity: 0.8;
     width: 160px;
     height: 160px;
   }
