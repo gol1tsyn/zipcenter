@@ -95,60 +95,59 @@
 
   /* Card with border glow */
   .card-glow {
-    @apply relative border border-border bg-card transition-all duration-500;
+    @apply relative bg-card transition-all duration-500;
     background: var(--gradient-card);
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   .card-glow::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(225deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 30%, transparent 60%);
+    inset: -1px;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.6) 0%,
+      transparent 30%,
+      transparent 70%,
+      rgba(255,255,255,0.4) 100%
+    );
+    z-index: 0;
     pointer-events: none;
-    z-index: 1;
-    opacity: 0.4;
-    transition: opacity 0.5s, width 0.5s, height 0.5s;
-  }
-
-  .card-glow::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(45deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.15) 30%, transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.3;
-    transition: opacity 0.5s, width 0.5s, height 0.5s;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
   }
 
   .card-glow:hover {
-    @apply border-foreground/20;
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.12);
   }
 
   .card-glow:hover::before {
     opacity: 1;
-    width: 180px;
-    height: 180px;
   }
 
-  .card-glow:hover::after {
-    opacity: 0.8;
-    width: 160px;
-    height: 160px;
+  .card-glow::after {
+    display: none;
   }
 
   @media (hover: none) {
     .card-glow {
-      @apply border-foreground/20;
+      border-color: rgba(0, 0, 0, 0.12);
       box-shadow: var(--glow-hover);
+    }
+
+    .card-glow::before {
+      opacity: 1;
     }
 
     .btn-orange-glow {
