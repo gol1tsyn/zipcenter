@@ -97,7 +97,7 @@
   .card-glow {
     @apply relative bg-card transition-all duration-500;
     background: var(--gradient-card);
-    border: 1px solid hsl(var(--foreground) / 0.1);
+    border: 2px solid hsl(var(--foreground) / 0.1);
   }
 
   .card-glow::before {
