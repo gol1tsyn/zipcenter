@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+const BRAND_ORANGE = '#EB6F05';
+
 interface ScrollRevealTextProps {
   children: string;
   className?: string;
@@ -14,7 +16,7 @@ const ScrollRevealText = ({ children, className = '' }: ScrollRevealTextProps) =
         textShadow: '0 0 0px rgba(235, 111, 5, 0)',
       }}
       whileInView={{ 
-        color: '#EB6F05', 
+        color: BRAND_ORANGE,
         textShadow: '0 0 40px rgba(235, 111, 5, 0.5)',
       }}
       viewport={{ once: false, amount: 0.3 }}

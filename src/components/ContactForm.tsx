@@ -22,7 +22,8 @@ const ContactForm = () => {
     setErrorMessage('');
     
     try {
-      const response = await fetch('https://h.albato.ru/wh/38/1lff98t/FVM3PD1_wwOq4DAvJnxR0Dr2AmNvNSX2kAiT4zHAzWQ/', {
+      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
