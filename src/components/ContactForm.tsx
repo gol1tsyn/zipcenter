@@ -23,6 +23,10 @@ const ContactForm = () => {
     
     try {
       const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
+      console.log('Webhook URL:', webhookUrl ? 'set' : 'MISSING');
+      if (!webhookUrl) {
+        throw new Error('Webhook URL is not configured');
+      }
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
