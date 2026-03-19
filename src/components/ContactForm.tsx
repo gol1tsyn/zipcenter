@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import ScrollRevealText from './ScrollRevealText';
-import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,16 +22,18 @@ const ContactForm = () => {
     setErrorMessage('');
     
     try {
-      const { data, error } = await supabase.functions.invoke('submit-form', {
-        body: {
+      const webhookUrl = 'https://script.google.com/macros/s/AKfycbyQpbj_fFXeQLOPetXys9qzGZ8P-kIOp8kvEvX5Wh6yQek4rFLzaSIlW-cQN2DpnbYT/exec';
+      await fetch(webhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone.trim(),
           message: formData.message.trim(),
-        },
+        }),
       });
-
-      if (error) throw error;
       
       setIsSubmitted(true);
       setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
