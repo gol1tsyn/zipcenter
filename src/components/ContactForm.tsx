@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import ScrollRevealText from './ScrollRevealText';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
