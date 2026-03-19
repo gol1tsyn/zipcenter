@@ -23,22 +23,16 @@ const ContactForm = () => {
     setErrorMessage('');
     
     try {
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-      console.log('Webhook URL:', webhookUrl ? 'set' : 'MISSING');
-      if (!webhookUrl) {
-        throw new Error('Webhook URL is not configured');
-      }
-      await fetch(webhookUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
+      const { data, error } = await supabase.functions.invoke('submit-form', {
+        body: {
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone.trim(),
           message: formData.message.trim(),
-        }),
+        },
       });
+
+      if (error) throw error;
       
       setIsSubmitted(true);
       setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
