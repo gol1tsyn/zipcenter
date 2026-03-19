@@ -23,9 +23,10 @@ const ContactForm = () => {
     
     try {
       const webhookUrl = import.meta.env.VITE_WEBHOOK_URL;
-      const response = await fetch(webhookUrl, {
+      await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -33,10 +34,6 @@ const ContactForm = () => {
           message: formData.message.trim(),
         }),
       });
-      
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
       
       setIsSubmitted(true);
       setSuccessMessage('Благодарим! Скоро менеджер вам позвонит');
