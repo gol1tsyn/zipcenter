@@ -22,7 +22,7 @@ const ContactForm = () => {
     setErrorMessage('');
     
     try {
-      const webhookUrl = 'https://script.google.com/macros/s/AKfycbzZGAXcdPkGzxcgEPtNk6Q-xtgly-WcYoHumA1tJ9r5JFMB3hfSCxK8wYvyLMiesl8/exec';
+      const webhookUrl = 'https://script.google.com/macros/s/AKfycbyoPqSXL4cUcMJEOul4dIVihX67Xn6ERSzWf1a06Tg8nxBKp6_8d-vJfyz0JTg4FXP1/exec';
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors',
