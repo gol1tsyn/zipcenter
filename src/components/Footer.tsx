@@ -24,6 +24,9 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <p className="text-xs text-muted-foreground/60 mt-4 text-center md:text-left">
+          ИНН 7751320575 · КПП 775101001 · ОГРН 1247700492071 · ОКВЭД 46.62
+        </p>
       </div>
     </footer>
   );
